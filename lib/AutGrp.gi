@@ -225,7 +225,7 @@ InstallMethod( IsomorphismFpGroup,
 ##
 InstallGlobalFunction( FreeGroupEndomorphismByImages,
     function(g,l)
-    return GroupHomomorphismByImages(g,g,GeneratorsOfGroup(g),l);
+    return GroupHomomorphismByImages(g,g,FreeGeneratorsOfGroup(g),l);
     end );
 
 
@@ -253,7 +253,7 @@ InstallGlobalFunction( FreeGroupEndomorphismByImages,
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorO,
     function(g)
     local imgs;
-    imgs := ShallowCopy(GeneratorsOfGroup(g));
+    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
     imgs[1] := imgs[1]^-1;
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
@@ -261,7 +261,7 @@ InstallGlobalFunction( FreeGroupAutomorphismsGeneratorO,
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorP,
     function(g)
     local imgs;
-    imgs := ShallowCopy(GeneratorsOfGroup(g));
+    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
     imgs{[1,2]} := [imgs[2],imgs[1]];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
@@ -269,7 +269,7 @@ InstallGlobalFunction( FreeGroupAutomorphismsGeneratorP,
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorU,
     function(g)
     local imgs;
-    imgs := ShallowCopy(GeneratorsOfGroup(g));
+    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
     imgs[1] := imgs[1]*imgs[2];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
@@ -277,15 +277,15 @@ InstallGlobalFunction( FreeGroupAutomorphismsGeneratorU,
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorS,
     function(g)
     local imgs;
-    imgs := GeneratorsOfGroup(g){[2..Rank(g)]};
-    Add(imgs, GeneratorsOfGroup(g)[1]);
+    imgs := FreeGeneratorsOfGroup(g){[2..Rank(g)]};
+    Add(imgs, FreeGeneratorsOfGroup(g)[1]);
     return FreeGroupEndomorphismByImages( g, List(imgs, g -> g^-1) );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorT,
     function(g)
     local imgs;
-    imgs := ShallowCopy(GeneratorsOfGroup(g));
+    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
     imgs{[1..2]} := [imgs[2],imgs[1]^-1];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
@@ -293,8 +293,8 @@ InstallGlobalFunction( FreeGroupAutomorphismsGeneratorT,
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorQ,
     function(g)
     local imgs;
-    imgs := GeneratorsOfGroup(g){[2..Rank(g)]};
-    Add(imgs, GeneratorsOfGroup(g)[1]);
+    imgs := FreeGeneratorsOfGroup(g){[2..Rank(g)]};
+    Add(imgs, FreeGeneratorsOfGroup(g)[1]);
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
@@ -302,7 +302,7 @@ InstallGlobalFunction( FreeGroupAutomorphismsGeneratorR,
     function(g)
     local imgs, n;
     n := Rank(g);
-    imgs := ShallowCopy(GeneratorsOfGroup(g));
+    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
     imgs{[1,2,n-1,n]} := [imgs[2]^-1,imgs[1],
                           imgs[n]*imgs[n-1]^-1,imgs[n-1]^-1];
     return FreeGroupEndomorphismByImages( g, imgs );
