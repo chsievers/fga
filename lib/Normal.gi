@@ -17,14 +17,19 @@ Revision.("fga/lib/Normal_gi") :=
 #M  NormalizerInWholeGroup( <group> )
 ##
 ##  returns the normalizer of <group> in the group of the whole family
-##  (assuming <group> is nontrivial - otherwise the normalizer is the
-##   whole group, but how can it be obtained?)
 ##
 InstallMethod( NormalizerInWholeGroup,
-    [ CanComputeWithInverseAutomaton and IsNonTrivial ],
+    [ CanComputeWithInverseAutomaton ],
     function(G)
     local found, A, reducedPos, states, s, u, ur, i, gens, redgenwords, fam,
           interesting, conjinvLetterRep, N;
+
+    if IsTrivial( G ) then
+        N := Group( FreeGeneratorsOfWholeGroup( G ) );
+        SetIsWholeFamily( N, true );
+        return N;
+    fi;
+
     found := false;
     A := FreeGroupAutomaton(G);
     fam := ElementsFamily(FamilyObj(G));
@@ -83,15 +88,11 @@ InstallMethod( NormalizerInWholeGroup,
 #M  NormalizerOp( <group>, <subgroup> )
 ##
 InstallMethod( NormalizerOp,
-    "for a subgroup of a free group in the whole group",
+    "for a subgroup of a free group",
     IsIdenticalObj,
-    [ IsFreeGroup and IsWholeFamily, CanComputeWithInverseAutomaton ],
+    [ CanComputeWithInverseAutomaton, CanComputeWithInverseAutomaton ],
     function(F,G)
-    if IsTrivial( G ) then
-        return F;
-    else
-        return NormalizerInWholeGroup(G);
-    fi;
+    return Intersection( F, NormalizerInWholeGroup( G ) );
     end );
 
 
