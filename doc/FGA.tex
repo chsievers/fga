@@ -8,10 +8,12 @@
 %%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Chapter{The FGA Package}
+\Chapter{Functionality of the FGA package}
 
-\atindex{FGA package}{@FGA package}
-This chapter  describes  the  {\FGA}  package.
+\atindex{Functionality of the FGA package}{@functionality
+                                            of the {\FGA} package}
+
+This chapter describes methods available from the {\FGA} package.
 
 In the following, let <f> be a free group created by `FreeGroup(<n>)',
 and let <u>, <u1> and <u2> be finitely generated subgroups of <f>
@@ -34,43 +36,61 @@ Group([ f1^2 ])
 \endexample
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{New functions}
+\Section{New operations for free groups}
 
-These new functions are available for finitely generated subgroups of
+These new operations are available for finitely generated subgroups of
 free groups:
 
 \>FreeGeneratorsOfGroup( <u> ) A
 
-returns a list of free generators of the free group <u>.
-This will be an N-reduced set...
+returns a list of free generators of the finitely generated free group
+<u>.
+
+The elements in this list will form an N-reduced set.  In addition to
+being a free (and thus minimal) generating set for <u>, this means
+that whenever <v1>, <v2> and <v3> are elements or inverses of elements
+of this list, then
+
+\beginlist%unordered
+  \item{--}
+    $<v1><v2> \neq 1$ implies $|<v1><v2>| \geq \max(|<v1>|, |<v2>|)$, and
+  \item{--}
+    $<v1><v2> \neq 1$ and $<v2><v3> \neq 1$ implies
+    $|<v1><v2><v3>| > |<v1>| - |<v2>| + |<v3>|$
+\endlist
+
+hold, where $|.|$ denotes the word length.
 
 \>RankOfFreeGroup( <u> ) A
 \>Rank( <u> ) O
 
-returns the rank of the free group <u>.
+returns the rank of the finitely generated free group <u>.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Method installations}
 
-This section list methods that are already known to {\GAP}, for which
-{\FGA} installs methods so that they can also be used with free groups.
+This section list operations that are already known to {\GAP}.
+{\FGA} installs new methods for them so that they can also be used
+with free groups.
 
 \>Normalizer( <f>, <u> ) O
 \>Normalizer( <u>, <elm> ) O
 
-The first variant returns the normalizer of <u> in <f>, (this is planned
-to be generalized to work with other groups than the whole family as
-first argument later)
+The first variant returns the normalizer of the finitely generated
+subgroup <u> in <f>, where <f> must be the whole free group. This is
+planned to be generalized later.
 
-The second veriant returns the normalizer of <elm> in <u>.
+The second veriant returns the normalizer of <elm> in the finitely
+generated subgroup <u> (see "ref:Normalizer" in the Reference Manual).
 
 \>RepresentativeAction( <u>, <d>, <e> ) O
 \>IsConjugate( <u>, <d>, <e> ) O
 
-`RepresentativeAction' returns an element $ <r> \in <group> $ such
-that $<d>^<r>=<e>$, or fail, if no such <r> exists.  <d> and <e> may
+`RepresentativeAction' returns an element $ <r> \in <u> $,
+where <u> is a finitely generated subgroup of a free group, such
+that $<d>^{<r>}=<e>$, or fail, if no such <r> exists.  <d> and <e> may
 be elements or subgroups of <u>, in the latter case <u> has to be the
-whole family (this is plannend to be generalized later).
+whole family (this is planned to be generalized later).
 
 `IsConjugate' returns a boolean indicating whether such an element <r>
 exists.
@@ -78,30 +98,38 @@ exists.
 \>Centralizer( <u>, <u2> ) O
 \>Centralizer( <u>, <elm> ) O
 
-returns the centralizer of <u2> or <elm> in the free group <u>.
+returns the centralizer of <u2> or <elm> in the finitely generated
+subgroup <u> of a free group.
 
 \>Index( <u1>, <u2> ) O
 \>IndexNC( <u1>, <u2> ) O
 
-return the index of <u2> in <u1>.  The first variant returns
+return the index of <u2> in <u1>, where <u1> and <u2> are finitely
+generated subgroups of a free group.  The first variant returns
 fail if <u2> is not a subgroup of <u1>, the second may return
 anything in this case.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Automorphism Groups of free groups}
+\Section{Automorphism groups of free groups}
 
 The {\FGA} package knows how to compute automorphism groups of free
 groups. This sections repeats the {\GAP} standard methods to obtain them.
 
 \>AutomorphismGroup( <u> ) A
 
-returns the automorphism group of the free group <u>.
+returns the automorphism group of the finitely generated subgroup <u>
+of a free group.
+
+Only a few methods will work with this group. But there is way to
+obtain an isomorphic finitely presented group:
 
 \>IsomorphismFpGroup( <group> ) A
 
-returns an isomorphism of <group> to a finitely presented <group>.  That
-finitely presented group itself can then be obtained with the command
-`Range'.
+returns an isomorphism of <group> to a finitely presented group.  
+For automorphism groups of free groups, the {\FGA} package implements
+the presentation of \cite{Neumann33}.
+That finitely presented group itself can then be obtained with the
+command `Range'.
 
 Here is an example:
 

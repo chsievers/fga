@@ -8,45 +8,49 @@
 %%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Chapter{Overview of the FGA package}
+\Chapter{Introduction}
+
+\atindex{FGA}{@FGA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Overview}
 
 This manual describes the {\FGA} (*Free Group Algorithms*) package,
 a {\GAP} package for computations with finitely generated subgroups of
 free groups.
 
 This package allows you to test membership and conjugacy, and to compute
-the rank ("RankOfFreeGroup"), the normalizer, centralizer, and index,
-when the groups involved are finitely generated subgroups of free groups.
+free generators, the rank, the normalizer, centralizer, and index,
+where the groups involved are finitely generated subgroups of free groups.
+%
+In addition, it provides a finite presentation for the
+automorphism group of a finitely generated free group following
+\cite{Neumann33}.
 
-The methods which are used work mainly with finite automata.
-Most of them are described in \cite{sims94}.
-This implementation is documented in \cite{sievers03}.
+See Chapter "Functionality of the FGA Package" for details.
 
-In addition, it provides a finite presentation for the automorphism group
-of a free group following \cite{neumann33}.
+Chapter "Installing and Loading the FGA Package" explains
+how to install and load the {\FGA} package.
 
-As this package mainly installs methods for already existing
-{\GAP}-operations, there is not much to explain.
-You find some new operations in chapter "The FGA package".
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Implementation and background}
 
-See Sections~"Installing the FGA Package"  and~"Loading  the  FGA
-Package" for how to install and load the {\FGA} package.
+The methods which are used work mainly with inverse finite automata,
+a variant of a concept known from theoretical computer science.
 
-If you are viewing this with on-line help, type: 
+Most of these techniques are described in \cite{Sims94}.
 
-\beginexample
-gap> ?>
-\endexample
+In \cite{BirgetEtAl00}, the connection between finitely generated
+subgroups of free groups and inverse finite automata is used to transfer
+results about the space complexity of problems concerning inverse finite
+automata to analogous results about finitely generated subgroups of free
+groups.
 
-to see the functions provided by the {\FGA} package.
+Some word oriented algorithms in the {\FGA} package use basic facts about
+free groups that can for example be found in \cite{LyndonSchupp77}.
+
+This implementation is documented in \cite{Sievers03}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
-%E  Emacs . . . . . . . . . . . . . . . . . . . . . local emacs variables
-%%
-%%  Local Variables:
-%%  fill-column:    73
-%%  End:
-%%
-
-
+%E

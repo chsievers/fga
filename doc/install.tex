@@ -8,25 +8,31 @@
 %%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Chapter{Installing and Loading the FGA Package}
+\Chapter{Installing and loading the FGA package}
 
+\atindex{Installing and loading the FGA package}{@installing
+                        and loading the {\FGA} package}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Installing the FGA Package}
+\Section{Installing the FGA package}\null
 
+\atindex{Installing the FGA package}{@installing the {\FGA} package}
 The installation of the {\FGA} package follows standard {\GAP} rules.
-So the standard method is to copy the package into a directory `fga'
-within the `pkg' directory of your {\GAP} distribution.  For other
-non-standard options please see Chapter~"ref:Installing GAP Packages"
-in the {\GAP} Reference Manual.
+So the standard method is to unzoo the package into the `pkg'
+directory  of your {\GAP} distribution.  This will create an `fga'
+subdirectory. 
 
-To create the documentation, go into the `doc' directory and type
-`make_doc'.
+For other non-standard options please see Chapter~"ref:Installing GAP
+Packages" in the {\GAP} Reference Manual.
+
+%To create the documentation, go into the `doc' directory and type
+%`make_doc'.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Section{Loading the FGA Package}
+\Section{Loading the FGA package}\null
 
+\atindex{Loading the FGA package}{@loading the {\FGA} package}
 To use the {\FGA} Package you have to request it explicitly. This  is
-done by calling
+done by calling `LoadPackage' like this:
 
 \beginexample
 gap> LoadPackage("fga");

@@ -1,7 +1,10 @@
-C intro.tex 1. Overview of the FGA package
-C FGA.tex 2. The FGA Package
-I 2.0. FGA package
-S 2.1. New functions
+C intro.tex 1. Introduction
+I 1.0. FGA
+S 1.1. Overview
+S 1.2. Implementation and background
+C FGA.tex 2. Functionality of the FGA package
+I 2.0. Functionality of the FGA package
+S 2.1. New operations for free groups
 F 2.1. FreeGeneratorsOfGroup
 F 2.1. RankOfFreeGroup
 F 2.1. Rank
@@ -14,9 +17,12 @@ F 2.2. Centralizer
 F 2.2. Centralizer
 F 2.2. Index
 F 2.2. IndexNC
-S 2.3. Automorphism Groups of free groups
+S 2.3. Automorphism groups of free groups
 F 2.3. AutomorphismGroup
 F 2.3. IsomorphismFpGroup
-C install.tex 3. Installing and Loading the FGA Package
-S 3.1. Installing the FGA Package
-S 3.2. Loading the FGA Package
+C install.tex 3. Installing and loading the FGA package
+I 3.0. Installing and loading the FGA package
+S 3.1. Installing the FGA package
+I 3.1. Installing the FGA package
+S 3.2. Loading the FGA package
+I 3.2. Loading the FGA package
