@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003
+#Y  2003 - 2005
 ##
 Revision.("fga/lib/Hom_gi") :=
     "@(#)$Id$";
@@ -44,7 +44,7 @@ InstallMethod( ImageElm,
 
 InstallMethod( IsSingleValued,
    "for group general mappings of free groups",
-   [ IsGroupGeneralMapping ],
+   [ IsGroupGeneralMapping and HasMappingGeneratorsImages ],
    function( hom )
    local g;
    g := Group( MappingGeneratorsImages( hom )[ 1 ] );
