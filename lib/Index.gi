@@ -25,6 +25,10 @@ InstallMethod( IndexInWholeGroup,
         return 1;
     fi;
 
+    if IsBound(G!.quot) then
+        TryNextMethod();
+    fi;
+
     return FGA_Index(FreeGroupAutomaton(G));
     end );
 
