@@ -6,7 +6,7 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003
+#Y 2003 - 2005
 ##
 
 
@@ -24,7 +24,7 @@ ReadPackage( "FGA", "lib/AutGrp.gi" );
 ReadPackage( "FGA", "lib/Intsect.gi" );
 
 ReadPackage( "FGA", "lib/ReprActT.gi" );
-
+ReadPackage( "FGA", "lib/Whitehd.gi" );
 
 #############################################################################
 ##

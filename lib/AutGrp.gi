@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003
+#Y  2003 - 2005
 ##
 Revision.("fga/lib/AutGrp_gi") :=
     "@(#)$Id$";
@@ -80,7 +80,8 @@ InstallMethod( IsomorphismFpGroup,
     [ IsAutomorphismGroupOfFreeGroup ],
     function( aut )
 
-    local n, f, fp, O, P, U, S, T, Q, R, rels, moreRels, iso;
+    local n, f, fp, O, P, U, S, T, Q, R, rels, moreRels,
+                    o, p, u, s, t, q, r, iso, isoinv;
 
     n := RankOfFreeGroup( AutomorphismDomain ( aut ));
 
@@ -88,11 +89,17 @@ InstallMethod( IsomorphismFpGroup,
 
         fp := FreeGroup( 0 );
 
+        iso := aut -> One( fp );
+
     elif n = 1 then
 
         f := FreeGroup( "O" );
-        rels := [ f.1^2];  # 6a
-        fp := f / [f.1^2];
+        O := f.1;
+        rels := [ O^2 ];  # 6a
+        fp := f / rels;
+
+        o := fp.1;
+        iso := aut -> o ^ (Order(aut) - 1);
 
     elif n = 2 then
 
@@ -106,6 +113,9 @@ InstallMethod( IsomorphismFpGroup,
                 , (U*P*O)^3          # 8b
                 ];
         fp := f / rels;
+
+        o := fp.1;  p := fp.2;  u := fp.3;
+        iso := FGA_CurryAutToPQOU( p, p, o, u); # Q=P
 
     elif n = 3 then
 
@@ -127,6 +137,13 @@ InstallMethod( IsomorphismFpGroup,
                 , (U*T)^3                          # 19k
                 ];
         fp := f / rels;
+
+        s := fp.1;  t := fp.2;  u := fp.3;
+        iso := FGA_CurryAutToPQOU( t*s^3*(s*t^-1)^2  # 16c
+                                 , s^4               # 16a
+                                 , s^3*(s*t^-1)^2    # 16b
+                                 , u
+                                 );
 
     elif IsEvenInt(n) then
 
@@ -159,6 +176,13 @@ InstallMethod( IsomorphismFpGroup,
                           i -> Comm( R^3*(Q*R^3)^(n-1),
                                      Q^-i*R^3*(Q*R^3)^(n-1)*Q^i ) );
         fp := f / Concatenation(rels, moreRels);
+
+        q := fp.1;  r := fp.2;
+        iso := FGA_CurryAutToPQOU( r^3*(q*r^3)^(n-1)   # 21b
+                                 , q
+                                 , (q*r^3)^(n-1)       # 21a
+                                 , q^-2*r^4*q^2*r^-3   # 21c
+                                 );
 
     else  #  n > 3, odd
 
@@ -206,12 +230,21 @@ InstallMethod( IsomorphismFpGroup,
                                      (S*R^-3)^(n-1)*S^(i*(n+1)) ) );
         fp := f / Concatenation( rels, moreRels );
 
+        s := fp.1;  r := fp.2;
+        iso := FGA_CurryAutToPQOU( r^3*s^n*(s*r^-3)^(n-1)              # 24c
+                                 , s^(n+1)                             # 24a
+                                 , s^n*(s*r^-3)^(n-1)                  # 24b
+                                 , s^(-2*(n+1))*r^4*s^(2*(n+1))*r^-3   # 24d
+                                 );
+
     fi;
 
-    iso := GroupHomomorphismByImagesNC( aut, fp, 
-                                        GeneratorsOfGroup( aut ),
-                                        GeneratorsOfGroup( fp  ) );
-    return iso;
+    isoinv := GroupHomomorphismByImagesNC( fp, aut,
+                                           GeneratorsOfGroup( fp ),
+                                           GeneratorsOfGroup( aut ) );
+
+    return GroupHomomorphismByFunction( aut, fp, iso,
+                                        x -> x ^ isoinv );
 
     end );
 
@@ -251,63 +284,84 @@ InstallGlobalFunction( FreeGroupEndomorphismByImages,
 ##       <x{n-2}>, <xn><x{n-1}>^-1, <x{n-1}^-1]     (n>=4)
 ##
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorO,
-    function(g)
+    function( g )
     local imgs;
-    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
+    FGA_CheckRank( g, 1 );
+    imgs := ShallowCopy( FreeGeneratorsOfGroup( g ) );
     imgs[1] := imgs[1]^-1;
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorP,
-    function(g)
+    function( g )
     local imgs;
-    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
-    imgs{[1,2]} := [imgs[2],imgs[1]];
+    FGA_CheckRank( g, 2 );
+    imgs := ShallowCopy( FreeGeneratorsOfGroup( g ) );
+    imgs{[1,2]} := [ imgs[2], imgs[1] ];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorU,
-    function(g)
+    function( g )
     local imgs;
-    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
-    imgs[1] := imgs[1]*imgs[2];
+    imgs := ShallowCopy( FreeGeneratorsOfGroup( g ) );
+    FGA_CheckRank( g, 2 );
+    imgs[1] := imgs[1] * imgs[2];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorS,
-    function(g)
+    function( g )
     local imgs;
+    FGA_CheckRank( g, 1 );
     imgs := FreeGeneratorsOfGroup(g){[2..Rank(g)]};
-    Add(imgs, FreeGeneratorsOfGroup(g)[1]);
+    Add( imgs, FreeGeneratorsOfGroup(g)[1] );
     return FreeGroupEndomorphismByImages( g, List(imgs, g -> g^-1) );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorT,
-    function(g)
+    function( g )
     local imgs;
-    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
-    imgs{[1..2]} := [imgs[2],imgs[1]^-1];
+    FGA_CheckRank( g, 2 );
+    imgs := ShallowCopy( FreeGeneratorsOfGroup( g ) );
+    imgs{[1..2]} := [ imgs[2], imgs[1]^-1 ];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorQ,
-    function(g)
+    function( g )
     local imgs;
+    FGA_CheckRank( g, 2 ); # we could allow 1
     imgs := FreeGeneratorsOfGroup(g){[2..Rank(g)]};
-    Add(imgs, FreeGeneratorsOfGroup(g)[1]);
+    Add( imgs, FreeGeneratorsOfGroup(g)[1] );
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
 InstallGlobalFunction( FreeGroupAutomorphismsGeneratorR,
-    function(g)
+    function( g )
     local imgs, n;
-    n := Rank(g);
-    imgs := ShallowCopy(FreeGeneratorsOfGroup(g));
-    imgs{[1,2,n-1,n]} := [imgs[2]^-1,imgs[1],
-                          imgs[n]*imgs[n-1]^-1,imgs[n-1]^-1];
+    FGA_CheckRank( g, 4 );
+    n := RankOfFreeGroup( g );
+    imgs := ShallowCopy( FreeGeneratorsOfGroup( g ) );
+    imgs{[1,2,n-1,n]} := [ imgs[2]^-1,           imgs[1],
+                           imgs[n]*imgs[n-1]^-1, imgs[n-1]^-1 ];
     return FreeGroupEndomorphismByImages( g, imgs );
     end );
 
+#############################################################################
+##
+#F FGA_CheckRank( <group>, <minrank> )
+##
+## Checks whether <group> has rank at least <minrank>, and signals an
+## error otherwise (helper function for FreeGroupAutomorphismsGenerator*)
+##
+InstallGlobalFunction( FGA_CheckRank,
+    function( g, r )
+    if RankOfFreeGroup( g ) < r then
+        Error( "the rank of the group should be at least ", r );
+    fi;
+    return; 
+    end );
 
 #############################################################################
 ##

@@ -6,7 +6,7 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003
+#Y 2003 - 2005
 ##
 
 ReadPackage( "FGA", "lib/util.gd" );
@@ -18,6 +18,7 @@ ReadPackage( "FGA", "lib/Normal.gd" );
 ReadPackage( "FGA", "lib/ExtAutom.gd" );
 ReadPackage( "FGA", "lib/AutGrp.gd" );
 ReadPackage( "FGA", "lib/Intsect.gd" );
+ReadPackage( "FGA", "lib/Whitehd.gd" );
 
 #############################################################################
 ##

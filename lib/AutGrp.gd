@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003
+#Y  2003 - 2005
 ##
 Revision.("fga/lib/AutGrp_gd") :=
     "@(#)$Id$";
@@ -63,6 +63,14 @@ DeclareGlobalFunction( "FreeGroupAutomorphismsGeneratorT" );
 DeclareGlobalFunction( "FreeGroupAutomorphismsGeneratorQ" );
 DeclareGlobalFunction( "FreeGroupAutomorphismsGeneratorR" );
 
+#############################################################################
+##
+#F FGA_CheckRank( <group>, <minrank> )
+##
+## Checks whether <group> has rank at least <minrank>, and signals an
+## error otherwise (helper function for FreeGroupAutomorphismsGenerator*)
+##
+DeclareGlobalFunction( "FGA_CheckRank" );
 
 #############################################################################
 ##
