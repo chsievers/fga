@@ -18,7 +18,7 @@ DeclareRepresentation( "IsSimpleInvAutomatonRep",
 #    [ "initial", "terminal", "states", "group" ] );
     [ "states", "group" ] );
 
-InstallMethod( EmptyInvAutomaton,
+InstallMethod( TrivialInvAutomaton,
     [ IsFreeGroup ],
     function(G)
     local state;

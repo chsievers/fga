@@ -13,7 +13,7 @@ Revision.("fga/lib/Autom_gd") :=
 
 DeclareCategory( "IsInvAutomatonCategory", IsObject);
 
-DeclareOperation( "EmptyInvAutomaton", [ IsFreeGroup ]);
+DeclareOperation( "TrivialInvAutomaton", [ IsFreeGroup ]);
 DeclareOperation( "InvAutomatonInsertGenerator",
     [ IsInvAutomatonCategory and IsMutable, IsElementOfFreeGroup ] );
 
