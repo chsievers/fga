@@ -91,7 +91,8 @@ PackageDoc := rec(
   # use same as in GAP            
   BookName  := "FGA",
   # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  Archive := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-Doc-1.0.tar.gz",
+  # Archive := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-Doc-1.0.tar.gz",
+  ArchiveURLSubset := ["doc", "htm"],
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
   # the path to the .six file used by GAP's help system
