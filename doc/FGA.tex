@@ -14,9 +14,9 @@
 This chapter  describes  the  {\FGA}  package.
 
 In the following, let <f> be a free group created by `FreeGroup(<n>)',
-and let <u>, <u1> and <u2> be finitely generated subgroups of <f> created
-by `Group', or computed from some other subgroup <f>.  Let <elm> be an
-element of <f>.
+and let <u>, <u1> and <u2> be finitely generated subgroups of <f>
+created by `Group' or `Subgroup', or computed from some other subgroup
+<f>.  Let <elm> be an element of <f>.
 
 For example:
 
@@ -64,12 +64,15 @@ first argument later)
 The second veriant returns the normalizer of <elm> in <u>.
 
 \>RepresentativeAction( <u>, <d>, <e> ) O
+\>IsConjugate( <u>, <d>, <e> ) O
 
-returns an element $ <r> \in <group> $ such that $<d>^<r>=<e>$, or
-fail, if no such <r> exists.
-<d> and <e> may be elements or subgroups of <u>, in the latter case
-<u> has to be the whole family (this is plannend to be generalized
-later).
+`RepresentativeAction' returns an element $ <r> \in <group> $ such
+that $<d>^<r>=<e>$, or fail, if no such <r> exists.  <d> and <e> may
+be elements or subgroups of <u>, in the latter case <u> has to be the
+whole family (this is plannend to be generalized later).
+
+`IsConjugate' returns a boolean indicating whether such an element <r>
+exists.
 
 \>Centralizer( <u>, <u2> ) O
 \>Centralizer( <u>, <elm> ) O
