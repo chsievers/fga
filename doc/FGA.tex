@@ -73,12 +73,11 @@ This section list operations that are already known to {\GAP}.
 {\FGA} installs new methods for them so that they can also be used
 with free groups.
 
-\>Normalizer( <f>, <u> ) O
+\>Normalizer( <u1>, <u2> ) O
 \>Normalizer( <u>, <elm> ) O
 
 The first variant returns the normalizer of the finitely generated
-subgroup <u> in <f>, where <f> must be the whole free group. This is
-planned to be generalized later.
+subgroup <u2> in <u1>.
 
 The second variant returns the normalizer of $\langle <elm> \rangle$
 in the finitely generated subgroup <u> (see "ref:Normalizer" in the
@@ -90,8 +89,7 @@ Reference Manual).
 `RepresentativeAction' returns an element $ <r> \in <u> $,
 where <u> is a finitely generated subgroup of a free group, such
 that $<d>^{<r>}=<e>$, or fail, if no such <r> exists.  <d> and <e> may
-be elements or subgroups of <u>, in the latter case <u> has to be the
-whole family (this is planned to be generalized later).
+be elements or subgroups of <u>.
 
 `IsConjugate' returns a boolean indicating whether such an element <r>
 exists.
