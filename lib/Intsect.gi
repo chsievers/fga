@@ -93,4 +93,102 @@ InstallMethod( Intersection2,
 
 #############################################################################
 ##
+#F  FGA_TrySetRepTable( <t>, <i>, <j>, <r>, <g> )
+##
+InstallGlobalFunction( FGA_TrySetRepTable,
+    function( t, i, j, r, g )    
+    local rx;
+    if not IsBound( t[i] ) then
+        t[i] := [];
+    fi;
+    if not IsBound( t[i][j] ) then
+        rx := ShallowCopy( r );
+        Add( rx, g );
+        t[i][j] := rx;
+        return rx;
+    else
+        return fail;
+    fi;
+    end );
+
+
+#############################################################################
+##
+#F  FGA_GetNr ( <state>, <statelist> )
+##
+InstallGlobalFunction( FGA_GetNr,
+    function( q ,sl )
+    if not IsBound( q.nr ) then
+        Add( sl, q );
+        q.nr := Size( sl );
+    elif not IsBound( sl[ q.nr ] ) then
+        sl[ q.nr ] := q;
+    fi;
+    return q.nr;
+end;
+
+#############################################################################
+##
+#F  FGA_FindRepInIntersection ( <A1>, <A2> )
+##
+InstallGlobalFunction( FGA_FindRepInIntersection,
+    function( A1, t1, A2, t2 )
+    local tab, t1nr, t2nr, sl1, sl2, Q, pair, g, q1, nr1, q2, nr2, r, rx;
+    sl1 := [];
+    sl1 [ Size( FGA_States( A1 ) ) + 1 ] := 23;
+    sl2 := [];
+    sl2 [ Size( FGA_States( A2 ) ) + 1 ] := 42;
+    q1 := A1!.initial;
+    q2 := A2!.initial;
+    if IsIdenticalObj( q1, t1) and
+       IsIdenticalObj( q1, t2) then
+        return [];
+    fi;
+    nr1 := FGA_GetNr( q1, sl1 );
+    nr2 := FGA_GetNr( q2, sl2 );
+    tab := [];
+    tab [ nr1 ] := [];
+    tab [ nr1 ][ nr2 ] := []; # empty word at initial state
+    Q := [ [ nr1, nr2 ] ];
+    for pair in Q do
+        q1 := sl1[ pair[1] ];
+        q2 := sl2[ pair[2] ];
+        r  := tab [ pair[1] ] [ pair[2] ];
+        for g in Intersection( BoundPositions( q1.delta ),
+                               BoundPositions( q2.delta ) ) do
+            nr1 := FGA_GetNr(q1.delta[g], sl1);
+            nr2 := FGA_GetNr(q2.delta[g], sl2);
+            rx := FGA_TrySetRepTable( tab, nr1, nr2, r, g );
+            if rx <> fail then
+                if IsIdenticalObj(sl1[ nr1 ], t1)
+                      and IsIdenticalObj(sl2[ nr2 ], t2) then
+                    return rx;
+                fi;
+                Add( Q, [ nr1, nr2 ] );
+            fi;
+        od;
+
+        for g in Intersection( BoundPositions( q1.deltainv ),
+                               BoundPositions( q2.deltainv ) ) do
+            nr1 := FGA_GetNr(q1.deltainv[g], sl1);
+            nr2 := FGA_GetNr(q2.deltainv[g], sl2);
+            rx := FGA_TrySetRepTable( tab, nr1, nr2, r, -g );
+            if rx <> fail then
+                if IsIdenticalObj(sl1[ nr1 ], t1)
+                      and IsIdenticalObj(sl2[ nr2 ], t2) then
+                    return rx;
+                fi;
+                Add( Q, [ nr1, nr2 ] );
+            fi;
+        od;
+    od;
+
+    return fail;
+
+    end );
+
+
+
+#############################################################################
+##
 #E

@@ -117,14 +117,14 @@ InstallMethod( FindPowLetterRep,
     end );
 
 InstallOtherMethod( RepresentativeActionOp,
-    "for subgroups of a wh. free group",
+    "for subgroups of a free group",
     IsFamFamFamX,
-    [ IsFreeGroup and IsWholeFamily,  # erstmal ...
+    [ CanComputeWithInverseAutomaton,
       CanComputeWithInverseAutomaton,
       CanComputeWithInverseAutomaton,
-      IsFunction ],
+      IsFunction ],1,
     function(F, G, H, act)
-        local AG, AH, rdG, rdH, statesH, redgens, i;
+        local AG, AH, AF, rdG, rdH, rdNst, statesH, redgens, i, AN, tmp, conj;
 
         if act <> OnPoints then
             TryNextMethod();
@@ -151,9 +151,25 @@ InstallOtherMethod( RepresentativeActionOp,
 
         for i in [rdH .. Size(statesH)] do
             if ForAll(redgens, w -> FGA_Check(statesH[i], w)) then
-                return Subword(FreeGeneratorsOfGroup(G)[1],1,rdG-1) *
-                       AssocWordByLetterRep(ElementsFamily(FamilyObj(F)),
-                                            FGA_repr(statesH[i]))^-1;
+                AN := FreeGroupAutomaton( NormalizerInWholeGroup( G ) );
+                rdNst := FGA_States( AN );
+                tmp := FGA_TmpState( 
+                          AN!.initial, 
+                          Concatenation(
+                              LetterRepAssocWord(
+                                  FGA_States( AG )[ rdG ].repr),
+                              -Reversed(FGA_repr(statesH[i])) ));
+                AF := FreeGroupAutomaton( F );
+                conj := FGA_FindRepInIntersection(
+                            AF, AF!.terminal,
+                            AN, tmp.state );
+                tmp.undo();
+                if conj = fail then
+                    return fail;
+                else
+                    return AssocWordByLetterRep(
+                               ElementsFamily(FamilyObj(F)), conj );
+                fi;
             fi;
         od;
         return fail;
