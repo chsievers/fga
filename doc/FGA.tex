@@ -18,7 +18,7 @@ This chapter describes methods available from the {\FGA} package.
 In the following, let <f> be a free group created by `FreeGroup(<n>)',
 and let <u>, <u1> and <u2> be finitely generated subgroups of <f>
 created by `Group' or `Subgroup', or computed from some other subgroup
-<f>.  Let <elm> be an element of <f>.
+of <f>.  Let <elm> be an element of <f>.
 
 For example:
 
@@ -31,7 +31,7 @@ gap> u1 := Subgroup( u, [f.1^2, f.1^4*f.2^6] );
 Group([ f1^2, f1^4*f2^6 ])
 gap> elm := f.1;
 f1
-gap> u2 := Normalizer( u, elm);
+gap> u2 := Normalizer( u, elm );
 Group([ f1^2 ])
 \endexample
 
@@ -80,8 +80,9 @@ The first variant returns the normalizer of the finitely generated
 subgroup <u> in <f>, where <f> must be the whole free group. This is
 planned to be generalized later.
 
-The second veriant returns the normalizer of <elm> in the finitely
-generated subgroup <u> (see "ref:Normalizer" in the Reference Manual).
+The second variant returns the normalizer of $\langle <elm> \rangle$
+in the finitely generated subgroup <u> (see "ref:Normalizer" in the
+Reference Manual).
 
 \>RepresentativeAction( <u>, <d>, <e> ) O
 \>IsConjugate( <u>, <d>, <e> ) O
