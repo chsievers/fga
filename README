@@ -1,0 +1,38 @@
+
+                             FGA
+
+                     Free Group Algorithms
+
+                        A GAP 4 package
+
+
+Contents:
+---------
+
+The FGA package provides methods for computations with finitely
+generated subgroups of free groups.
+It allows to test membership and conjugacy, and to compute free
+generators, the rank, the normalizer, centralizer, and index, where
+the groups involved are finitely generated subgroups of free groups.
+It also allows the computation of preimages of homomorphisms of such
+groups.
+In addition, it provides a finite presentation for the automorphism
+group of a finitely generated free group.
+
+
+Requirements:
+-------------
+
+FGA is written for GAP version 4.4.  It does not use external programs
+and does not depend on system specifics.
+
+
+Installation:
+-------------
+
+The installation follows standard GAP rules.
+So the normal way to install is to unpack the archive in the `pkg'
+directory, which will create an `fga'subdirectory.
+
+
+Enjoy!
