@@ -20,7 +20,6 @@ DeclareGlobalFunction( "FGA_newstateX" );
 DeclareGlobalFunction( "FGA_connectposX" );
 DeclareGlobalFunction( "FGA_connectX" );
 DeclareGlobalFunction( "FGA_defineX" );
-DeclareGlobalFunction( "FGA_joinX" );
 DeclareGlobalFunction( "FGA_findX" );
 DeclareGlobalFunction( "FGA_mergeX" );
 DeclareGlobalFunction( "FGA_coincidenceX" );

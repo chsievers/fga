@@ -12,16 +12,13 @@ Revision.("fga/lib/ExtAutom_gi") :=
     "@(#)$Id$";
 
 
-#nr := 0;
 InstallValue( FGA_FreeGroupForGenerators, FreeGroup(infinity) );
 
 InstallValue( FGA_One, One(FGA_FreeGroupForGenerators) );
 
 InstallGlobalFunction( FGA_newstateX,
     function()
-#    nr := nr+1;
-    return (rec (#nr:=nr,
-                 delta:=[], deltainv:=[], sndsig:=[], sndsiginv:=[]));
+    return (rec (delta:=[], deltainv:=[], sndsig:=[], sndsiginv:=[]));
     end );
 
 InstallGlobalFunction( FGA_connectposX,
@@ -48,13 +45,6 @@ InstallGlobalFunction( FGA_defineX,
     FGA_connectX(state, nstate, gen, FGA_One);
     # nstate.W := state.W * gen
     return nstate;
-    end );
-
-
-InstallGlobalFunction( FGA_joinX,
-    function(s1, A, s2, B, g)
-    # A * s1.W * x = B * s2.W
-    FGA_connectX(s1, s2, g, A^-1*B);
     end );
 
 # active
@@ -225,7 +215,7 @@ InstallGlobalFunction( FGA_insertgeneratorX,
         for i in [t.index .. bt.index-1] do
             s1 := FGA_defineX(s1, g[i]);
         od;
-        FGA_joinX(s1, sndgen^-1*t.sndsig,s2, bt.sndsig, g[bt.index]);
+        FGA_connectX(s1, s2, g[bt.index], t.sndsig^-1*sndgen*bt.sndsig);
     fi;
     return FGA_find(s);
     end );
