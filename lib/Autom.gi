@@ -32,7 +32,7 @@ InstallMethod( InvAutomatonInsertGenerator,
     IsCollsElms,
     [ IsSimpleInvAutomatonRep and IsMutable, IsElementOfFreeGroup ],
     function(A,gen)
-        FGA_InsertGenerator(A!.initial, gen);
+        FGA_AutomInsertGeneratorLetterRep( A, LetterRepAssocWord( gen ) );
     end );
 
 InstallMethod( \in,
