@@ -98,7 +98,6 @@ InstallMethod( FindPowLetterRep,
         n := 0;
         wp := -Reversed(wp);
         repeat
-#Print("-");
             state := FGA_deltas(state ,wp);
             n := n+1;
         until state=fail or IsIdenticalObj(state, finalstate);
@@ -107,13 +106,13 @@ InstallMethod( FindPowLetterRep,
     init.undo();
     final.undo();
 
-    if state = fail then
-        return fail;
-    else
+    if IsIdenticalObj(state, finalstate) then
         fam := ElementsFamily(FamilyObj(f));
         return AssocWordByLetterRep(fam, wi)   * 
                AssocWordByLetterRep(fam, wp)^n *
                AssocWordByLetterRep(fam, wt);
+    else
+        return fail;
     fi;
     end );
 
