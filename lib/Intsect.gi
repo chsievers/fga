@@ -125,7 +125,7 @@ InstallGlobalFunction( FGA_GetNr,
         sl[ q.nr ] := q;
     fi;
     return q.nr;
-end;
+    end );
 
 #############################################################################
 ##

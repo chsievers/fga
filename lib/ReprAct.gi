@@ -156,8 +156,7 @@ InstallOtherMethod( RepresentativeActionOp,
                 tmp := FGA_TmpState( 
                           AN!.initial, 
                           Concatenation(
-                              LetterRepAssocWord(
-                                  FGA_States( AG )[ rdG ].repr),
+                              FGA_States( AG )[ rdG ].repr,
                               -Reversed(FGA_repr(statesH[i])) ));
                 AF := FreeGroupAutomaton( F );
                 conj := FGA_FindRepInIntersection(
