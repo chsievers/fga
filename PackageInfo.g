@@ -12,11 +12,12 @@
 SetPackageInfo( rec(
 
 PackageName := "FGA",
-Version := "0.9",
-Date := "21/03/2003",
-#ArchiveURL := "",
+Subtitle := "Free Group Algorithms",
+Version := "1.0",
+Date := "11/09/2003", # the Theodor W. Adorno release
 
-#ArchiveFormats := "",
+ArchiveURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-1.0",
+ArchiveFormats := ".tar.gz",
 
 Persons := [
   rec( 
@@ -52,8 +53,8 @@ Status := "preparation",
 ##  the updating of package information on the GAP Website, and inclusion
 ##  and updating of the package in the GAP distribution.
 #
-#README_URL := "",
-#PackageInfoURL := "",
+README_URL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/README",
+PackageInfoURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/PackageInfo.g",
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
@@ -70,7 +71,7 @@ AbstractHTML :=
    computations with finitely generated subgroups of free groups and\
    other free group related stuff",
 
-#PackageWWWHome := "",
+PackageWWWHome := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/",
                   
 ##  On the GAP Website there is an online version of all manuals in the
 ##  GAP distribution. To handle the documentation of a package it is
@@ -92,8 +93,7 @@ PackageDoc := rec(
   # use same as in GAP            
   BookName  := "FGA",
   # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  Archive := 
-      "",
+  Archive := "",
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
   # the path to the .six file used by GAP's help system
@@ -126,10 +126,7 @@ Autoload := false,
 ##  contains as many tests of the package functionality as sensible.
 #TestFile := "tst/testall.g",
 
-##  *Optional*: Here you can list some keyword related to the topic 
-##  of the package.
-# Keywords := ["Smith normal form", "p-adic", "rational matrix inversion"]
-Keywords := []
+Keywords := ["free groups", "inverse finite automata"]
 
 ));
 
