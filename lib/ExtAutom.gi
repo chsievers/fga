@@ -77,7 +77,7 @@ InstallGlobalFunction( FGA_mergeX,
     s2 := FGA_findX(s2);
 
     if IsBound(s2.state.isinitial) then
-Print("Swapping...\n");
+    # don't mess with the initial state
         s := s1; s1 := s2; s2 := s;
         C := A;   A := B;   B := C;
     fi;
