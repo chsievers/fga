@@ -14,7 +14,7 @@ SetPackageInfo( rec(
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
 Version := "1.0",
-Date := "11/09/2003", # the Theodor W. Adorno release
+Date := "18/09/2003",
 
 ArchiveURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-1.0",
 ArchiveFormats := ".tar.gz",
@@ -28,17 +28,18 @@ Persons := [
     Email         := "c.sievers@tu-bs.de",
 #    WWWHome       := "",
     PostalAddress := Concatenation(
-            [ "Christian Sievers \n", 
+            [ "Christian Sievers\n", 
               "Fachbereich Mathematik und Informatik\n",
               "Institut f\"ur Geometrie\n",
               "Technische Universit\"at Braunschweig\n",
-              "Pockelsstr. 14, D-38106 Braunschweig, ",
+              "Pockelsstr. 14\n",
+              "D-38106 Braunschweig,\n",
               "Germany" ]),
     Place         := "Braunschweig",
-    Institution   := "Fachbereich Mathematik und Informatik"  )
+    Institution   := "TU Braunschweig"  )
     ],
 
-Status := "preparation",
+Status := "dev",
 
 #CommunicatedBy := "",
 #AcceptDate := "",
@@ -63,13 +64,10 @@ PackageInfoURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/PackageI
 ##  Please, use '<span class="pkgname">GAP</span>' and
 ##  '<span class="pkgname">MyPKG</span>' for specifing package names.
 ##  
-# AbstractHTML := "This package provides  a collection of functions for \
-# computing the Smith normal form of integer matrices and some related \
-# utilities.",
 AbstractHTML := 
-  "The <span class=\"pkgname\">FGA</span> package installs methods for\
-   computations with finitely generated subgroups of free groups and\
-   other free group related stuff",
+  "The <span class=\"pkgname\">FGA</span> package installs methods for \
+   computations with finitely generated subgroups of free groups and \
+   provides a presentation for their automorphism groups.",
 
 PackageWWWHome := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/",
                   
@@ -93,7 +91,7 @@ PackageDoc := rec(
   # use same as in GAP            
   BookName  := "FGA",
   # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  Archive := "",
+  Archive := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-Doc-1.0.tar.gz",
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
   # the path to the .six file used by GAP's help system
@@ -110,11 +108,10 @@ PackageDoc := rec(
 ##  Are there restrictions on the operating system for this package? Or does
 ##  the package need other packages to be available?
 Dependencies := rec(
-  GAP := ">=4.3",
+  GAP := ">=4.4",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [],
   ExternalConditions := []
-                      
 ),
 
 AvailabilityTest := ReturnTrue,
@@ -124,7 +121,7 @@ Autoload := false,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
-#TestFile := "tst/testall.g",
+TestFile := "tst/testall.g",
 
 Keywords := ["free groups", "inverse finite automata"]
 
