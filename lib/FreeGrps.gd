@@ -83,21 +83,31 @@ DeclareOperation( "AsWordLetterRepInGenerators",
     [ IsElementOfFreeGroup, IsFreeGroup ] );
 
 
+
+#############################################################################
+##
+#O  CyclicallyReducedWord( <g> )
+##
+##  returns the the cyclically reduced form of <g>
+##
+DeclareOperation( "CyclicallyReducedWord",
+    [ IsElementOfFreeGroup ] );
+
+
 #############################################################################
 ##
 #F  CanComputeWithInverseAutomaton( <G> )
 ##
 ##  indicates whether we can use inverse automata to compute with <G>.
+##  We assume this is possible if <G> is a finitely generated free group,
+##  hoping that we actually can get a generating set when needed.
+##  This is not always true, but generally than there is also no other way.
 ##
-DeclareFilter( "CanComputeWithInverseAutomaton" );
-
-InstallTrueMethod( CanComputeWithInverseAutomaton,
-    IsFreeGroup and HasGeneratorsOfGroup and IsFinitelyGeneratedGroup );
+DeclareSynonym( "CanComputeWithInverseAutomaton",
+                 IsFreeGroup and IsFinitelyGeneratedGroup );
 
 InstallTrueMethod( CanComputeWithInverseAutomaton, HasFreeGroupAutomaton );
 
-InstallTrueMethod( IsFreeGroup and IsFinitelyGeneratedGroup,
-    CanComputeWithInverseAutomaton );
 
 InstallTrueMethod( CanEasilyTestMembership, HasFreeGroupAutomaton );
 
