@@ -39,7 +39,7 @@ Persons := [
     Institution   := "TU Braunschweig"  )
     ],
 
-Status := "dev",
+Status := "deposited",
 
 #CommunicatedBy := "",
 #AcceptDate := "",
