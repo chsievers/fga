@@ -1,6 +1,6 @@
 #############################################################################
 ##  
-#W PkgInfo.g                   FGA package                  Christian Sievers
+#W PackageInfo.g               FGA package                  Christian Sievers
 ##
 ## The package info file for the FGA package
 ##
@@ -11,7 +11,7 @@
 
 SetPackageInfo( rec(
 
-PkgName := "FGA",
+PackageName := "FGA",
 Version := "0.9",
 Date := "21/03/2003",
 #ArchiveURL := "",
@@ -53,7 +53,7 @@ Status := "preparation",
 ##  and updating of the package in the GAP distribution.
 #
 #README_URL := "",
-#PkgInfoURL := "",
+#PackageInfoURL := "",
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
