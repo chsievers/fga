@@ -142,7 +142,7 @@ InstallGlobalFunction( FGA_coincidence,
             elif IsBound(s01.deltainv[g]) then
                 FGA_merge(s0, s01.deltainv[g], Q);
             else
-                FGA_connect(s0, s01, g);
+                FGA_connectpos(s0, s01, g);
             fi;
         od;
         for g in BoundPositions(deltainv) do
@@ -153,7 +153,7 @@ InstallGlobalFunction( FGA_coincidence,
             elif IsBound(s01.delta[g]) then
                 FGA_merge(s0, s01.delta[g], Q);
             else
-                FGA_connect(s01, s0, g);
+                FGA_connectpos(s01, s0, g);
             fi;
         od;
     od;
