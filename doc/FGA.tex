@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%W  FGA.tex            FGA documentation                Christian Sievers
+%%
+%H  $Id$
+%%
+%Y  2003
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Chapter{The FGA Package}
+
+\atindex{FGA package}{@FGA package}
+This chapter  describes  the  {\FGA}  package.
+
+In the following, let <f> be a free group created by `FreeGroup(<n>)',
+and let <u>, <u1> and <u2> be finitely generated subgroups of <f> created
+by `Group', or computed from some other subgroup <f>.  Let <elm> be an
+element of <f>.
+
+For example:
+
+\beginexample
+gap> f := FreeGroup( 2 );                                             
+<free group on the generators [ f1, f2 ]>
+gap> u := Group( f.1^2, f.2^2, f.1*f.2 );
+Group([ f1^2, f2^2 ])
+gap> u1 := Subgroup( u, [f.1^2, f.1^4*f.2^6] );
+Group([ f1^2, f1^4*f2^6 ])
+gap> elm := f.1;
+f1
+gap> u2 := Normalizer( u, elm);
+Group([ f1^2 ])
+\endexample
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{New functions}
+
+These new functions are available for finitely generated subgroups of
+free groups:
+
+\>FreeGeneratorsOfGroup( <u> ) A
+
+returns a list of free generators of the free group <u>.
+This will be an N-reduced set...
+
+\>RankOfFreeGroup( <u> ) A
+\>Rank( <u> ) O
+
+returns the rank of the free group <u>.
+
+\Section{Method installations}
+
+This section list methods that are already known to {\GAP}, for which
+{\FGA} installs methods so that they can also be used with free groups.
+
+\>Normalizer( <f>, <u> ) O
+\>Normalizer( <u>, <elm> ) O
+
+The first variant returns the normalizer of <u> in <f>, (this is planned
+to be generalized to work with other groups than the whole family as
+first argument later)
+
+The second veriant returns the normalizer of <elm> in <u>.
+
+\>RepresentativeAction( <u>, <d>, <e> ) O
+
+returns an element $ <r> \in <group> $ such that $<d>^<r>=<e>$, or
+fail, if no such <r> exists.
+<d> and <e> may be elements or subgroups of <u>, in the latter case
+<u> has to be the whole family (this is plannend to be generalized
+later).
+
+\>Centralizer( <u>, <u2> ) O
+\>Centralizer( <u>, <elm> ) O
+
+returns the centralizer of <u2> or <elm> in the free group <u>.
+
+\>Index( <u1>, <u2> ) O
+\>IndexNC( <u1>, <u2> ) O
+
+return the index of <u2> in <u1>.  The first variant returns
+fail if <u2> is not a subgroup of <u1>, the second may return
+anything in this case.
+
+\Section{Automorphism Groups of free groups}
+
+The {\FGA} package knows how to compute automorphism groups of free
+groups. This sections repeats the {\GAP} standard methods to obtain them.
+
+\>AutomorphismGroup( <u> ) A
+
+returns the automorphism group of the free group <u>.
+
+\>IsomorphismFpGroup( <group> ) A
+
+returns an isomorphism of <group> to a finitely presented <group>.  That
+finitely presented group itself can then be obtained with the command
+`Range'.
+
+Here is an example:
+
+\beginexample
+gap> f := FreeGroup( 2 );
+<free group on the generators [ f1, f2 ]>
+gap> a := AutomorphismGroup( f );
+<group of size infinity with 3 generators>
+gap> iso := IsomorphismFpGroup( a );
+[ [ f1, f2 ] -> [ f1^-1, f2 ], [ f1, f2 ] -> [ f2, f1 ], 
+  [ f1, f2 ] -> [ f1*f2, f2 ] ] -> [ O, P, U ]
+gap> Range( iso );
+<fp group on the generators [ O, P, U ]>
+\endexample
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%E
+
