@@ -9,14 +9,15 @@
 #Y 2003
 ##
 
-ReadPkg( "FGA", "lib/util.gd" );
-ReadPkg( "FGA", "lib/Iterated.gd" );
-ReadPkg( "FGA", "lib/Autom.gd" );
-ReadPkg( "FGA", "lib/FreeGrps.gd" );
-ReadPkg( "FGA", "lib/ReprAct.gd" );
-ReadPkg( "FGA", "lib/Normal.gd" );
-ReadPkg( "FGA", "lib/ExtAutom.gd" );
-ReadPkg( "FGA", "lib/AutGrp.gd" );
+ReadPackage( "FGA", "lib/util.gd" );
+ReadPackage( "FGA", "lib/Iterated.gd" );
+ReadPackage( "FGA", "lib/Autom.gd" );
+ReadPackage( "FGA", "lib/FreeGrps.gd" );
+ReadPackage( "FGA", "lib/ReprAct.gd" );
+ReadPackage( "FGA", "lib/Normal.gd" );
+ReadPackage( "FGA", "lib/ExtAutom.gd" );
+ReadPackage( "FGA", "lib/AutGrp.gd" );
+ReadPackage( "FGA", "lib/Intsect.gd" );
 
 #############################################################################
 ##

@@ -10,19 +10,20 @@
 ##
 
 
-ReadPkg( "FGA", "lib/util.gi" );
-ReadPkg( "FGA", "lib/Iterated.gi" );
-ReadPkg( "FGA", "lib/Autom.gi" );
-ReadPkg( "FGA", "lib/FreeGrps.gi" );
-ReadPkg( "FGA", "lib/ReprAct.gi" );
-ReadPkg( "FGA", "lib/Normal.gi" );
-ReadPkg( "FGA", "lib/Central.gi" );
-ReadPkg( "FGA", "lib/Index.gi" );
-ReadPkg( "FGA", "lib/ExtAutom.gi");
-ReadPkg( "FGA", "lib/Hom.gi" );
-ReadPkg( "FGA", "lib/AutGrp.gi" );
+ReadPackage( "FGA", "lib/util.gi" );
+ReadPackage( "FGA", "lib/Iterated.gi" );
+ReadPackage( "FGA", "lib/Autom.gi" );
+ReadPackage( "FGA", "lib/FreeGrps.gi" );
+ReadPackage( "FGA", "lib/ReprAct.gi" );
+ReadPackage( "FGA", "lib/Normal.gi" );
+ReadPackage( "FGA", "lib/Central.gi" );
+ReadPackage( "FGA", "lib/Index.gi" );
+ReadPackage( "FGA", "lib/ExtAutom.gi");
+ReadPackage( "FGA", "lib/Hom.gi" );
+ReadPackage( "FGA", "lib/AutGrp.gi" );
+ReadPackage( "FGA", "lib/Intsect.gi" );
 
-ReadPkg( "FGA", "lib/ReprActT.gi" );
+ReadPackage( "FGA", "lib/ReprActT.gi" );
 
 
 #############################################################################
