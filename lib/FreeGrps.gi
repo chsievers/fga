@@ -77,8 +77,8 @@ InstallMethod( FreeGeneratorsOfGroup,
 #M  GeneratorsOfGroup( <group> )
 ##
 InstallMethod( GeneratorsOfGroup,
-    "for a subgroup of a free group",
-    [ CanComputeWithInverseAutomaton ],
+    "for a subgroup of a free group having a FreeGroupAutomaton",
+    [ HasFreeGroupAutomaton ],
     FreeGeneratorsOfGroup );
 
 
@@ -226,6 +226,30 @@ InstallMethod( AsWordLetterRepInGenerators,
         return FGA_AsWordLetterRepInGenerators( 
                               LetterRepAssocWord( g ),
                               FreeGroupExtendedAutomaton( G ) );
+    end );
+
+
+#############################################################################
+##
+#O  CyclicallyReducedWord( <g> )
+##
+##  returns the the cyclically reduced form of <g>
+##
+InstallMethod( CyclicallyReducedWord,
+    "for an element in a free group",
+    [ IsElementOfFreeGroup ],
+    function( g )
+    local rep, len, i;
+    if IsOne( g ) then
+       return g;
+    fi;
+    rep := LetterRepAssocWord( g );
+    len := Length( rep );
+    i := 1;
+    while rep[i] = -rep[len-i+1] do
+       i := i+1;
+    od;
+    return AssocWordByLetterRep( FamilyObj( g ), rep{[i..len-i+1]} );
     end );
 
 
