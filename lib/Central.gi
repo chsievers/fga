@@ -78,7 +78,7 @@ InstallMethod( CentralizerOp,
     if r >= 2 then
         return TrivialSubgroup(F);
     elif r = 1 then
-        return Centralizer(F, GeneratorsOfGroup(G)[1]);
+        return Centralizer(F, FreeGeneratorsOfGroup(G)[1]);
     else    # (r = 0)
         return F;
     fi;
