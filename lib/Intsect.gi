@@ -6,7 +6,7 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003
+#Y 2003 - 2005
 ##
 Revision.("fga/lib/Intsect_gi") :=
     "@(#)$Id$";
@@ -38,6 +38,13 @@ InstallMethod( Intersection2,
     [ CanComputeWithInverseAutomaton, CanComputeWithInverseAutomaton ],
     function( G1, G2 )
     local A, t, sl1, sl2, i, nr1, nr2, Q, pair, g, q, q1, q2, bpd, bpdi;
+
+    # let the gap lib handle this case:
+    if IsSubgroupOfWholeGroupByQuotientRep( G1 ) and
+       IsSubgroupOfWholeGroupByQuotientRep( G2 ) then
+        TryNextMethod();
+    fi;
+
     t := [];
     i := FGA_StateTable( t, 1, 1 );
     sl1 := FGA_States( FreeGroupAutomaton( G1 ) );
