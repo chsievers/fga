@@ -25,7 +25,8 @@ InstallMethod( IndexInWholeGroup,
         return 1;
     fi;
 
-    if IsBound(G!.quot) then
+    # let the gap lib handle this case:
+    if IsSubgroupOfWholeGroupByQuotientRep(G) then
         TryNextMethod();
     fi;
 
