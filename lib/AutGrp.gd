@@ -44,7 +44,7 @@ DeclareGlobalFunction( "FreeGroupEndomorphismByImages" );
 #F  FreeGroupAutomorphismsGeneratorQ( <group> )
 #F  FreeGroupAutomorphismsGeneratorR( <group> )
 ##
-##  These functions return the endomorphism of <group> which maps the
+##  These functions return the automorphism of <group> which maps the
 ##  generators [<x1>, <x2>, ..., <xn>] to
 ##  O : [<x1>^-1 , <x2>,       ..., <xn>   ]        (n>=1)
 ##  P : [<x2>    , <x1>, <x3>, ..., <xn>   ]        (n>=2)
@@ -53,7 +53,7 @@ DeclareGlobalFunction( "FreeGroupEndomorphismByImages" );
 ##  T : [<x2>    , <x1>^-1, <x3>, ..., <xn>]        (n>=2)
 ##  Q : [<x2>, <x3>, ..., <xn>, <x1> ]              (n>=2)
 ##  R : [<x2>^-1, <x1>, <x3>, <x4>, ..., 
-##       <x{n-2}>, <xn><x{n-1}>^-1, <x{n-1}^-1]     (n>=4)
+##       <x{n-2}>, <xn><x{n-1}>^-1, <x{n-1}>^-1]    (n>=4)
 ##
 DeclareGlobalFunction( "FreeGroupAutomorphismsGeneratorO" );
 DeclareGlobalFunction( "FreeGroupAutomorphismsGeneratorP" );
