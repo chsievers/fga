@@ -6,15 +6,15 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003
+#Y 2003 - 2005
 ##
 
 SetPackageInfo( rec(
 
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
-Version := "1.0",
-Date := "18/09/2003",
+Version := "1.1pre",
+Date := "04/05/2005",
 
 ArchiveURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-1.0",
 ArchiveFormats := ".tar.gz",
@@ -30,7 +30,7 @@ Persons := [
     PostalAddress := Concatenation(
             [ "Christian Sievers\n", 
               "Fachbereich Mathematik und Informatik\n",
-              "Institut f\"ur Geometrie\n",
+              "Institut Computational Mathematics\n",
               "Technische Universit\"at Braunschweig\n",
               "Pockelsstr. 14\n",
               "D-38106 Braunschweig,\n",
@@ -124,7 +124,9 @@ Autoload := false,
 ##  contains as many tests of the package functionality as sensible.
 TestFile := "tst/testall.g",
 
-Keywords := ["free groups", "inverse finite automata"]
+Keywords := ["free groups", "inverse finite automata",
+             "basic coset enumeration",
+             "finite presentation of the automorphism group of a free group"]
 
 ));
 
