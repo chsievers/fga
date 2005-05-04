@@ -3,6 +3,7 @@ I 1.0. FGA
 S 1.1. Overview
 S 1.2. Implementation and background
 S 1.3. Integration of the package
+S 1.4. License
 C FGA.tex 2. Functionality of the FGA package
 I 2.0. Functionality of the FGA package
 S 2.1. New operations for free groups

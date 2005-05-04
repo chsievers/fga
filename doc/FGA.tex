@@ -46,7 +46,7 @@ free groups:
 returns a list of free generators of the finitely generated free group
 <u>.
 
-The elements in this list will form an N-reduced set.  In addition to
+The elements in this list form an N-reduced set.  In addition to
 being a free (and thus minimal) generating set for <u>, this means
 that whenever <v1>, <v2> and <v3> are elements or inverses of elements
 of this list, then
@@ -117,7 +117,8 @@ anything in this case.
 
 \>Intersection( <u1>, <u2> \dots ) F
 
-returns the intersection of the given free groups.
+returns the intersection of <u1> and <u2>, where <u1> and <u2> are
+finitely generated subgroups of a free group.
 
 \>`<elm> in <u>'{in} O
 
@@ -232,13 +233,9 @@ command `Range'.
 Here is an example:
 
 \beginexample
-gap> f := FreeGroup( 2 );
-<free group on the generators [ f1, f2 ]>
-gap> a := AutomorphismGroup( f );
-<group of size infinity with 3 generators>
-gap> iso := IsomorphismFpGroup( a );
-[ [ f1, f2 ] -> [ f1^-1, f2 ], [ f1, f2 ] -> [ f2, f1 ], 
-  [ f1, f2 ] -> [ f1*f2, f2 ] ] -> [ O, P, U ]
+gap> f := FreeGroup( 2 );;
+gap> a := AutomorphismGroup( f );;
+gap> iso := IsomorphismFpGroup( a );;
 gap> Range( iso );
 <fp group on the generators [ O, P, U ]>
 \endexample
@@ -249,7 +246,7 @@ presentation, just apply the isomorphism obtained from
 
 \beginexample
 gap> aut := GroupHomomorphismByImages( f, f,
-               GeneratorsOfGroup(f), [ f.1^f.2, f.1*f.2] );
+               GeneratorsOfGroup( f ), [ f.1^f.2, f.1*f.2 ] );
 [ f1, f2 ] -> [ f2^-1*f1*f2, f1*f2 ]
 gap> ImageElm( iso, aut );
 O^2*U*O*P^-1*U
