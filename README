@@ -42,7 +42,7 @@ Installation:
 
 The installation follows standard GAP rules.
 So the normal way to install is to unpack the archive in the `pkg'
-directory, which will create an `fga'subdirectory.
+directory, which will create an `fga' subdirectory.
 
 
 Enjoy!
