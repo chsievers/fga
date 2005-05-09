@@ -10,8 +10,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Chapter{Functionality of the FGA package}
 
-\atindex{Functionality of the FGA package}{@functionality %
-                                            of the {\FGA} package}
+\atindex{Functionality of the FGA package}{@Functionality %
+                                           of the {\FGA} package|indexit}
 
 This chapter describes methods available from the {\FGA} package.
 
@@ -43,8 +43,8 @@ free groups:
 
 \>FreeGeneratorsOfGroup( <u> ) A
 
-returns a list of free generators of the finitely generated free group
-<u>.
+returns a list of free generators of the finitely generated subgroup
+<u> of a free group.
 
 The elements in this list form an N-reduced set.  In addition to
 being a free (and thus minimal) generating set for <u>, this means
@@ -64,7 +64,8 @@ hold, where $|.|$ denotes the word length.
 \>RankOfFreeGroup( <u> ) A
 \>Rank( <u> ) O
 
-returns the rank of the finitely generated free group <u>.
+returns the rank of the finitely generated subgroup <u> of a free
+group.
 
 \>CyclicallyReducedWord( <elm> ) O
 
@@ -190,7 +191,7 @@ return a letter representation
 (see Section~"ref:Representations for Associative Words" in the {\GAP}
 Reference Manual)
 of the given <elm> relative to the generators the group was created
-with or the free generators as returned by FreeGeneratorsOfGroup.
+with or the free generators as returned by `FreeGeneratorsOfGroup'.
 
 Continuing the above example:
 
@@ -219,7 +220,7 @@ functions to obtain the generating automorphisms.
 returns the automorphism group of the finitely generated subgroup <u>
 of a free group.
 
-Only a few methods will work with this group. But there is way to
+Only a few methods will work with this group. But there is a way to
 obtain an isomorphic finitely presented group:
 
 \>IsomorphismFpGroup( <group> ) A
