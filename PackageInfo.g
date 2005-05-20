@@ -13,10 +13,11 @@ SetPackageInfo( rec(
 
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
-Version := "1.1pre",
-Date := "04/05/2005",
+Version := "1.1",
+#        dd/mm/yyyy
+Date := "20/05/2005",
 
-ArchiveURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-1.0",
+ArchiveURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-1.1",
 ArchiveFormats := ".tar.gz",
 
 Persons := [
@@ -39,10 +40,10 @@ Persons := [
     Institution   := "TU Braunschweig"  )
     ],
 
-Status := "deposited",
+Status := "accepted",
 
-#CommunicatedBy := "",
-#AcceptDate := "",
+CommunicatedBy := "Edmund Robertson (St. Andrews)",
+AcceptDate := "10/05/2005",
 
 ##  For a central overview of all packages and a collection of all package
 ##  archives it is necessary to have two files accessible which should be
@@ -118,7 +119,7 @@ Dependencies := rec(
 AvailabilityTest := ReturnTrue,
 #BannerString := ""
 
-Autoload := false,
+Autoload := true,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
