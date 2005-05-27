@@ -13,11 +13,11 @@ SetPackageInfo( rec(
 
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
-Version := "1.1",
+Version := "1.1.0.1",
 #        dd/mm/yyyy
-Date := "20/05/2005",
+Date := "27/05/2005",
 
-ArchiveURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-1.1",
+ArchiveURL := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/FGA-1.1.0.1",
 ArchiveFormats := ".tar.gz",
 
 Persons := [
@@ -43,7 +43,7 @@ Persons := [
 Status := "accepted",
 
 CommunicatedBy := "Edmund Robertson (St. Andrews)",
-AcceptDate := "10/05/2005",
+AcceptDate := "05/2005",
 
 ##  For a central overview of all packages and a collection of all package
 ##  archives it is necessary to have two files accessible which should be
@@ -55,8 +55,8 @@ AcceptDate := "10/05/2005",
 ##  the updating of package information on the GAP Website, and inclusion
 ##  and updating of the package in the GAP distribution.
 #
-README_URL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/README",
-PackageInfoURL := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/PackageInfo.g",
+README_URL := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/README",
+PackageInfoURL := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/PackageInfo.g",
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
@@ -70,7 +70,7 @@ AbstractHTML :=
    computations with finitely generated subgroups of free groups and \
    provides a presentation for their automorphism groups.",
 
-PackageWWWHome := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/",
+PackageWWWHome := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/",
                   
 ##  On the GAP Website there is an online version of all manuals in the
 ##  GAP distribution. To handle the documentation of a package it is
@@ -92,7 +92,7 @@ PackageDoc := rec(
   # use same as in GAP            
   BookName  := "FGA",
   # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  # Archive := "http://cayley.math.nat.tu-bs.de/software/sievers/FGA/FGA-Doc-1.0.tar.gz",
+  # Archive := "",
   ArchiveURLSubset := ["doc", "htm"],
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
