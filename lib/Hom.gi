@@ -29,7 +29,7 @@ InstallMethod( PreImagesRepresentative,
 
 InstallMethod( ImageElm,
     "for homomorphisms of free groups",
-    FamRangeEqFamElm,
+    FamSourceEqFamElm,
     [ IsGroupGeneralMappingByImages and IsMapping, IsElementOfFreeGroup ],
     function( hom, x )
     local w, mgi;
@@ -39,7 +39,7 @@ InstallMethod( ImageElm,
         return fail;
     fi;
     return Product( w, i -> mgi[2][AbsInt(i)]^SignInt(i),
-                    One(Source(hom)));
+                    One(Range(hom)));
     end );
 
 InstallMethod( IsSingleValued,
