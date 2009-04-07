@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003 - 2005
+#Y  2003 - 2009
 ##
 Revision.("fga/lib/Hom_gi") :=
     "@(#)$Id$";
@@ -44,15 +44,33 @@ InstallMethod( ImageElm,
 
 InstallMethod( IsSingleValued,
    "for group general mappings of free groups",
-   [ IsGroupGeneralMapping and HasMappingGeneratorsImages ],
+   [ IsFromFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
    function( hom )
-   local g;
-   g := Group( MappingGeneratorsImages( hom )[ 1 ] );
-   if CanComputeWithInverseAutomaton( g )
-      and Size( GeneratorsOfGroup( g ) ) = RankOfFreeGroup( g ) then
-          return true;
+   local mgi, g, imgs;
+   mgi := MappingGeneratorsImages( hom );
+   g := Group( mgi[1] );
+   if not IsFreeGroup( g ) then
+      TryNextMethod();
    fi;
-   TryNextMethod();
+   if Size( mgi[1] ) = RankOfFreeGroup( g ) then
+      return true;
+   fi;
+
+   # write free generators in given generators and
+   # compute corresponding images:
+   imgs := List( FreeGeneratorsOfGroup( g ), fgen -> 
+                   Product( AsWordLetterRepInGenerators( fgen, g ),
+	                    i -> mgi[2][AbsInt(i)]^SignInt(i),
+		            One(Range(hom)) ));
+
+   # check if all given generator/image pairs agree with the
+   # map given by free generators and computed images:
+   return ForAll( [ 1 .. Size( mgi[1] ) ], n -> 
+                    mgi[2][n] =
+                    Product( 
+		      AsWordLetterRepInFreeGenerators( mgi[1][n], g ),
+		      i -> imgs[AbsInt(i)]^SignInt(i),
+		      One(Range(hom)) ));
    end );
 
 
