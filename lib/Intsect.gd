@@ -6,7 +6,7 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003
+#Y 2003 - 2009
 ##
 Revision.("fga/lib/Intsect_gd") :=
     "@(#)$Id$";
@@ -34,7 +34,7 @@ DeclareGlobalFunction( "FGA_GetNr" );
 
 #############################################################################
 ##
-#F  FGA_FindRepInIntersection ( <A1>, <A2> )
+#F  FGA_FindRepInIntersection ( <A1>, <t1>, <A2>, <t2> )
 ##
 DeclareGlobalFunction( "FGA_FindRepInIntersection" );
 
