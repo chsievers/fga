@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003 - 2009
+#Y  2003 - 2010
 ##
 Revision.("fga/lib/Hom_gi") :=
     "@(#)$Id$";
@@ -27,10 +27,11 @@ InstallMethod( PreImagesRepresentative,
                     One(Source(hom)));
     end );
 
-InstallMethod( ImageElm,
+InstallMethod( ImagesRepresentative,
     "for homomorphisms of free groups",
     FamSourceEqFamElm,
-    [ IsGroupGeneralMappingByImages and IsMapping, IsElementOfFreeGroup ],
+    [ IsGroupGeneralMappingByImages, IsElementOfFreeGroup ],
+    23,
     function( hom, x )
     local w, mgi;
     mgi := MappingGeneratorsImages( hom );
