@@ -49,6 +49,9 @@ InstallMethod( IsSingleValued,
    function( hom )
    local mgi, g, imgs;
    mgi := MappingGeneratorsImages( hom );
+
+   if mgi[1]=[] then return true; fi; # map on trivial group
+
    g := Group( mgi[1] );
    if not IsFreeGroup( g ) then
       TryNextMethod();
