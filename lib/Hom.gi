@@ -35,6 +35,8 @@ InstallMethod( ImagesRepresentative,
     function( hom, x )
     local w, mgi;
     mgi := MappingGeneratorsImages( hom );
+    if mgi[1]=[] then return One(Range(hom)); fi;
+    
     w := AsWordLetterRepInGenerators( x, Group( mgi[1] ));
     if w = fail then
         return fail;
