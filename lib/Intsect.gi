@@ -6,7 +6,7 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003 - 2010
+#Y 2003 - 2012
 ##
 Revision.("fga/lib/Intsect_gi") :=
     "@(#)$Id$";
@@ -18,7 +18,6 @@ Revision.("fga/lib/Intsect_gi") :=
 ##
 InstallGlobalFunction( FGA_StateTable,
     function( t, i, j )
-    local l;
     if not IsBound( t[i] ) then
         t[i] := [];
     fi;
