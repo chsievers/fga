@@ -25,8 +25,9 @@ write any such automorphism as word in these generators.
 Requirements:
 -------------
 
-FGA is written for GAP version 4.4.  It does not use external programs
-and does not depend on system specifics.
+FGA is written for GAP version 4.4 or later.
+It does not use external programs and does not depend on
+system specifics.
 
 
 License:

@@ -6,19 +6,16 @@
 ##
 #H @(#)$Id$
 ##
-#Y 2003 - 2005
+#Y 2003 - 2012
 ##
 
 SetPackageInfo( rec(
 
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
-Version := "1.1.0.1",
+Version := "1.1.1",
 #        dd/mm/yyyy
-Date := "27/05/2005",
-
-ArchiveURL := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/FGA-1.1.0.1",
-ArchiveFormats := ".tar.gz",
+Date := "30/05/2012",
 
 Persons := [
   rec( 
@@ -55,8 +52,13 @@ AcceptDate := "05/2005",
 ##  the updating of package information on the GAP Website, and inclusion
 ##  and updating of the package in the GAP distribution.
 #
-README_URL := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/README",
-PackageInfoURL := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/PackageInfo.g",
+
+PackageWWWHome := "http://www.icm.tu-bs.de/ag_algebra/software/FGA/",
+
+ArchiveFormats := ".tar.gz",
+ArchiveURL     := Concatenation( ~.PackageWWWHome, "FGA-", ~.Version ),
+README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
+PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 
 ##  Here you  must provide a short abstract explaining the package content 
 ##  in HTML format (used on the package overview Web page) and an URL 
@@ -70,8 +72,6 @@ AbstractHTML :=
    computations with finitely generated subgroups of free groups and \
    provides a presentation for their automorphism groups.",
 
-PackageWWWHome := "http://www.icm.tu-bs.de/ag_algebra/software/sievers/FGA/",
-                  
 ##  On the GAP Website there is an online version of all manuals in the
 ##  GAP distribution. To handle the documentation of a package it is
 ##  necessary to have:
