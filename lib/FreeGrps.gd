@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003
+#Y  2003 - 2012
 ##
 Revision.("fga/lib/FreeGroups_gd") :=
     "@(#)$Id$";
@@ -101,7 +101,7 @@ DeclareOperation( "CyclicallyReducedWord",
 ##  indicates whether we can use inverse automata to compute with <G>.
 ##  We assume this is possible if <G> is a finitely generated free group,
 ##  hoping that we actually can get a generating set when needed.
-##  This is not always true, but generally than there is also no other way.
+##  This is not always true, but generally then there is also no other way.
 ##
 DeclareSynonym( "CanComputeWithInverseAutomaton",
                  IsFreeGroup and IsFinitelyGeneratedGroup );
