@@ -57,4 +57,11 @@ gap> Index(g,g1);
 gap> RankOfFreeGroup(Intersection(Group(f.2^f.1,f.1^2),Group(f.2,f.1*f.2*f.1^2,f.1^2*f.2*f.1,f.1^3)));
 4
 
+gap> # bug #122
+gap> f:=FreeGroup(2);;
+gap> iso := GroupHomomorphismByImages(f,f,[f.1*f.2,f.1*f.2^2],[f.2^2*f.1,f.2*f.1]);;
+gap> SetIsSurjective(iso,true);
+gap> Image(iso,PreImagesRepresentative(iso,f.1));
+f1
+
 gap> STOP_TEST( "FGA.tst", 100000);
