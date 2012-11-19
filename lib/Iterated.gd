@@ -6,13 +6,8 @@
 ##
 ##  Maybe this should move to the GAP library
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003
-##
-Revision.("fga/lib/Iterated_gd") :=
-    "@(#)$Id$";
-
 
 #############################################################################
 ##

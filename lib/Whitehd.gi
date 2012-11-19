@@ -4,12 +4,8 @@
 ##
 ##  Computations with Whitehead automorphisms
 ##
-#H  @(#)$Id$
+#Y  2004 - 2012
 ##
-#Y  2004 - 2005
-##
-Revision.("fga/lib/Whitehd_gi") :=
-    "@(#)$Id$";
 
 InstallMethod( FGA_WhiteheadAutomorphisms,
     "for finitely generated free groups",

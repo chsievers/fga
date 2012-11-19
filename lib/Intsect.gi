@@ -4,12 +4,8 @@
 ##
 ## Installations for the computation of intersections of free groups
 ##
-#H @(#)$Id$
-##
 #Y 2003 - 2012
 ##
-Revision.("fga/lib/Intsect_gi") :=
-    "@(#)$Id$";
 
 
 #############################################################################

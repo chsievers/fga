@@ -4,13 +4,8 @@
 ##
 ##  Utility functions
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003
-##
-Revision.("fga/lib/util_gi") :=
-    "@(#)$Id$";
-
 
 InstallGlobalFunction( BoundPositions,
     l -> Filtered([1..Length(l)], i -> IsBound(l[i])) );

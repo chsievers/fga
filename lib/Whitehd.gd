@@ -4,12 +4,8 @@
 ##
 ##  Declarations for computations with Whitehead automorphisms
 ##
-#H  @(#)$Id$
+#Y  2004 - 2012
 ##
-#Y  2004 - 2005
-##
-Revision.("fga/lib/Whitehd_gd") :=
-    "@(#)$Id$";
 
 DeclareAttribute( "FGA_WhiteheadParams", IsGroupHomomorphism );
 DeclareAttribute( "FGA_WhiteheadAutomorphisms", IsFreeGroup );

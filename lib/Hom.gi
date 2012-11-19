@@ -4,12 +4,8 @@
 ##
 ##  Methods for homomorphisms of free groups
 ##
-#H  @(#)$Id$
-##
 #Y  2003 - 2012
 ##
-Revision.("fga/lib/Hom_gi") :=
-    "@(#)$Id$";
 
 
 InstallMethod( PreImagesRepresentative,

@@ -4,12 +4,8 @@
 ##
 ##  Methods for automorphism groups of free groups
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003 - 2005
-##
-Revision.("fga/lib/AutGrp_gd") :=
-    "@(#)$Id$";
 
 
 #############################################################################

@@ -4,13 +4,8 @@
 ##
 ##  Declarations of utility functions
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003
-##
-Revision.("fga/lib/util_gd") :=
-    "@(#)$Id$";
-
 
 DeclareGlobalFunction( "BoundPositions" );
 

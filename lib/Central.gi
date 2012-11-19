@@ -4,12 +4,8 @@
 ##
 ##  Method installations for centralizers in free groups
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003
-##
-Revision.("fga/lib/Central_gi") :=
-    "@(#)$Id$";
 
 
 #############################################################################
