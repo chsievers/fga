@@ -4,13 +4,8 @@
 ##
 ## The declaration file for the computation of normalizers in free groups
 ##
-#H @(#)$Id$
+#Y 2003 - 2012
 ##
-#Y 2003
-##
-Revision.("fga/lib/Normal_gd") :=
-    "@(#)$Id$";
-
 
 #############################################################################
 ##

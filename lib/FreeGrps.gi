@@ -4,12 +4,8 @@
 ##
 ##  Main installation file for the FGA package
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003
-##
-Revision.("fga/lib/FreeGroups_gi") :=
-    "@(#)$Id$";
 
 
 #############################################################################

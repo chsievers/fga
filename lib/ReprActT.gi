@@ -7,13 +7,8 @@
 ##  This is generally applicable and not needed for the FGA package,
 ##  so maybe it should move to the GAP library.
 ##
-#H  @(#)$Id$
+#Y  2003 - 2012
 ##
-#Y  2003
-##
-Revision.("fga/lib/ReprActT_gi") :=
-    "@(#)$Id$";
-
 
 InstallOtherMethod( RepresentativeActionOp,
     "trivial general cases",

@@ -4,8 +4,6 @@
 ##
 ## The init file for the FGA package
 ##
-#H @(#)$Id$
-##
 #Y 2003 - 2012
 ##
 
