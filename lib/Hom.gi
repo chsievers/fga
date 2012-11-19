@@ -6,7 +6,7 @@
 ##
 #H  @(#)$Id$
 ##
-#Y  2003 - 2010
+#Y  2003 - 2012
 ##
 Revision.("fga/lib/Hom_gi") :=
     "@(#)$Id$";
@@ -15,11 +15,11 @@ Revision.("fga/lib/Hom_gi") :=
 InstallMethod( PreImagesRepresentative,
     "for homomorphisms of free groups",
     FamRangeEqFamElm,
-    [ IsGroupGeneralMappingByImages, IsElementOfFreeGroup ],
+    [ IsToFpGroupGeneralMappingByImages, IsElementOfFreeGroup ],
     function( hom, x )
     local w, mgi;
     mgi := MappingGeneratorsImages( hom );
-    w := AsWordLetterRepInGenerators( x, ImagesSource(hom) );
+    w := AsWordLetterRepInGenerators( x, FGA_Image( hom ));
     if w = fail then
         return fail;
     fi;
@@ -30,20 +30,30 @@ InstallMethod( PreImagesRepresentative,
 InstallMethod( ImagesRepresentative,
     "for homomorphisms of free groups",
     FamSourceEqFamElm,
-    [ IsGroupGeneralMappingByImages, IsElementOfFreeGroup ],
+    [ IsFromFpGroupGeneralMappingByImages, IsElementOfFreeGroup ],
     23,
     function( hom, x )
     local w, mgi;
     mgi := MappingGeneratorsImages( hom );
     if mgi[1]=[] then return One(Range(hom)); fi;
     
-    w := AsWordLetterRepInGenerators( x, Group( mgi[1] ));
+    w := AsWordLetterRepInGenerators( x, FGA_Source( hom ));
     if w = fail then
         return fail;
     fi;
     return Product( w, i -> mgi[2][AbsInt(i)]^SignInt(i),
                     One(Range(hom)));
     end );
+
+InstallMethod( FGA_Source,
+   [ IsFromFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
+   hom -> Group( MappingGeneratorsImages(hom)[1] )
+);
+
+InstallMethod( FGA_Image,
+   [ IsToFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
+   hom -> Group( MappingGeneratorsImages(hom)[2] )
+);
 
 InstallMethod( IsSingleValued,
    "for group general mappings of free groups",
