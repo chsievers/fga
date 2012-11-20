@@ -10,13 +10,16 @@
 ##  This is nearly identical to Greg Gamble's make_doc to make the 
 ##  Example Package documentation.
 ## 
+
+[ -L GAPROOT ] || { echo GAPROOT link missing; exit 1; }
+
 echo "TeXing documentation"
 # TeX the manual
 tex manual
 # ... and build its bibliography (uncomment if there is a `manual.bib')
 bibtex manual
 # TeX the manual again to incorporate the ToC ... and build the index
-tex manual; ../../../doc/manualindex manual
+tex manual; GAPROOT/doc/manualindex manual
 # Finally TeX the manual again to get cross-references right
 tex manual
 # Create the PostScript version (uncomment next line, if needed)
@@ -27,7 +30,7 @@ pdftex manual; pdftex manual
 # The HTML version of the manual
 mkdir -p ../htm
 echo "Creating HTML documentation"
-../../../etc/convert.pl -t -c -n FGA . ../htm
+GAPROOT/etc/convert.pl -t -c -n FGA . ../htm
 
 #############################################################################
 ##
