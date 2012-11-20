@@ -1,0 +1,5 @@
+#!/bin/sh
+VERSION=$(sed -n 's/Version.*"\(.*\)".*/\1/p' PackageInfo.g)
+FILE=FGA-${VERSION}.tar
+tar cf $FILE --files-from filelist --owner 0 --group 0 --transform 's+^+fga/+'
+gzip -9 $FILE
