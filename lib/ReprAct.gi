@@ -4,7 +4,7 @@
 ##
 ##  Methods for computing RepresentativeAction
 ##
-#Y  2003 - 2012
+#Y  2003 - 2015
 ##
 
 InstallOtherMethod( RepresentativeActionOp,
@@ -145,6 +145,13 @@ InstallOtherMethod( RepresentativeActionOp,
 
         for i in [rdH .. Size(statesH)] do
             if ForAll(redgens, w -> FGA_Check(statesH[i], w)) then
+
+                # We now know that G is a subgroup of a conjugate of H.
+                # More ugly low level computation could check for equality.
+                # Instead we postpone the check to a time where we can work
+                # at a higher level.
+                # So if the result is fail, we get it a little slower.
+
                 AN := FreeGroupAutomaton( NormalizerInWholeGroup( G ) );
                 tmp := FGA_TmpState( 
                           AN!.initial, 
@@ -158,10 +165,20 @@ InstallOtherMethod( RepresentativeActionOp,
                 tmp.undo();
                 if conj = fail then
                     return fail;
-                else
-                    return AssocWordByLetterRep(
-                               ElementsFamily(FamilyObj(F)), conj );
                 fi;
+
+                conj := AssocWordByLetterRep(
+                           ElementsFamily(FamilyObj(F)), conj );
+
+                # Now check if we really have a conjugating element:
+
+                if IsSubset( G, List( FreeGeneratorsOfGroup(H),
+                                      h -> h^(conj^-1) )) then
+                    return conj;
+                else
+                    return fail;
+                fi;
+
             fi;
         od;
         return fail;
