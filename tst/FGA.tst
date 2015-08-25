@@ -19,6 +19,12 @@ gap> RepresentativeAction(g,f.2*f.1,f.1*f.2);
 f1^-1*f2^-1*f1^-1
 gap> RepresentativeAction(Group(f.1*f.2),f.1*f.2,f.2*f.1);
 fail
+gap> # bug reportet by Ignat Soroko, example slightly modified
+gap> a:=f.1;; b:=f.2;;
+gap> g := Group( a^b, a^(b^-1), b^4 );;
+gap> h := Group( b^2, a^b, a*b*a );;
+gap> IsConjugate(f,g,h);
+false
 gap> f:=FreeGroup(3);
 <free group on the generators [ f1, f2, f3 ]>
 gap> e:=Enumerator(f);
