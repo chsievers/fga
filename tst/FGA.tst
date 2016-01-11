@@ -63,4 +63,10 @@ gap> iso := GroupHomomorphismByImages(f,f,[f.1*f.2,f.1*f.2^2],[f.2^2*f.1,f.2*f.1
 gap> SetIsSurjective(iso,true);
 gap> Image(iso,PreImagesRepresentative(iso,f.1));
 f1
+gap> # bug with trivial image / preimage
+gap> F:=FreeGroup(0);;
+gap> homFree:=GroupHomomorphismByImages(F, F, [], []);
+[  ] -> [  ]
+gap> PreImagesRepresentative(homFree, One(F));
+<identity ...>
 gap> STOP_TEST( "FGA.tst", 100000);
