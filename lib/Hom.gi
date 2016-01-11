@@ -43,12 +43,12 @@ InstallMethod( ImagesRepresentative,
 
 InstallMethod( FGA_Source,
    [ IsFromFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
-   hom -> Group( MappingGeneratorsImages(hom)[1] )
+   hom -> Subgroup( Source(hom), MappingGeneratorsImages(hom)[1] )
 );
 
 InstallMethod( FGA_Image,
    [ IsToFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
-   hom -> Group( MappingGeneratorsImages(hom)[2] )
+   hom -> Subgroup( Range(hom), MappingGeneratorsImages(hom)[2] )
 );
 
 InstallMethod( IsSingleValued,
@@ -60,7 +60,7 @@ InstallMethod( IsSingleValued,
 
    if mgi[1]=[] then return true; fi; # map on trivial group
 
-   g := Group( mgi[1] );
+   g := Subgroup( Source(hom), mgi[1] );
    if not IsFreeGroup( g ) then
       TryNextMethod();
    fi;
