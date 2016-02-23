@@ -4,7 +4,7 @@
 ##
 ##  Methods to create and compute with extended inverse automata
 ##
-#Y  2003 - 2012
+#Y  2003 - 2016
 ##
 
 
@@ -62,13 +62,12 @@ InstallGlobalFunction( FGA_mergeX,
     s1 := FGA_findX(s1);
     s2 := FGA_findX(s2);
 
-    if IsBound(s2.state.isinitial) then
-    # don't mess with the initial state
-        s := s1; s1 := s2; s2 := s;
-        C := A;   A := B;   B := C;
-    fi;
-
     if IsNotIdenticalObj(s1.state,s2.state) then
+        if IsBound(s2.state.isinitial) then
+        # don't mess with the initial state
+            s := s1; s1 := s2; s2 := s;
+            C := A;   A := B;   B := C;
+        fi;
         s2.state.isnow := s1.state;
         s2.state.sndcoinc := (B*s2.sndcoinc)^-1*A*s1.sndcoinc;
         Add(Q,s2.state);
