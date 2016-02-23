@@ -4,7 +4,7 @@
 ##
 ##  Methods for computing RepresentativeAction
 ##
-#Y  2003 - 2015
+#Y  2003 - 2016
 ##
 
 InstallOtherMethod( RepresentativeActionOp,
@@ -98,8 +98,8 @@ InstallMethod( FindPowLetterRep,
         until state=fail or IsIdenticalObj(state, finalstate);
     fi;
 
-    init.undo();
     final.undo();
+    init.undo();
 
     if IsIdenticalObj(state, finalstate) then
         fam := ElementsFamily(FamilyObj(f));
