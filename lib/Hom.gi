@@ -4,7 +4,7 @@
 ##
 ##  Methods for homomorphisms of free groups
 ##
-#Y  2003 - 2012
+#Y  2003 - 2016
 ##
 
 
@@ -43,12 +43,12 @@ InstallMethod( ImagesRepresentative,
 
 InstallMethod( FGA_Source,
    [ IsFromFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
-   hom -> Subgroup( Source(hom), MappingGeneratorsImages(hom)[1] )
+   hom -> SubgroupNC( Source(hom), MappingGeneratorsImages(hom)[1] )
 );
 
 InstallMethod( FGA_Image,
    [ IsToFpGroupGeneralMappingByImages and HasMappingGeneratorsImages ],
-   hom -> Subgroup( Range(hom), MappingGeneratorsImages(hom)[2] )
+   hom -> SubgroupNC( Range(hom), MappingGeneratorsImages(hom)[2] )
 );
 
 InstallMethod( IsSingleValued,
@@ -60,7 +60,7 @@ InstallMethod( IsSingleValued,
 
    if mgi[1]=[] then return true; fi; # map on trivial group
 
-   g := Subgroup( Source(hom), mgi[1] );
+   g := SubgroupNC( Source(hom), mgi[1] );
    if not IsFreeGroup( g ) then
       TryNextMethod();
    fi;
