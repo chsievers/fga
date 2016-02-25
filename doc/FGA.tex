@@ -2,7 +2,7 @@
 %%
 %W  FGA.tex            FGA documentation                Christian Sievers
 %%
-%Y  2003 - 2012
+%Y  2003 - 2016
 %%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,7 +24,7 @@ For example:
 gap> f := FreeGroup( 2 );                                             
 <free group on the generators [ f1, f2 ]>
 gap> u := Group( f.1^2, f.2^2, f.1*f.2 );
-Group([ f1^2, f2^2 ])
+Group([ f1^2, f2^2, f1*f2 ])
 gap> u1 := Subgroup( u, [f.1^2, f.1^4*f.2^6] );
 Group([ f1^2, f1^4*f2^6 ])
 gap> elm := f.1;
@@ -163,8 +163,8 @@ gap> ua := f.1^2*f.2^2;; ub := f.1^2*f.2;;
 gap> u := Group( ua, ub );;
 gap> g := FreeGroup( "a", "b" );;
 gap> hom := GroupHomomorphismByImages( g, u,
-              GeneratorsOfGroup(g),
-              GeneratorsOfGroup(u) );
+>             GeneratorsOfGroup(g),
+>             GeneratorsOfGroup(u) );
 [ a, b ] -> [ f1^2*f2^2, f1^2*f2 ]
 gap> # how can f.1^2 be expressed?
 gap> PreImagesRepresentative( hom, f.1^2 );
@@ -244,7 +244,7 @@ presentation, just apply the isomorphism obtained from
 
 \beginexample
 gap> aut := GroupHomomorphismByImages( f, f,
-               GeneratorsOfGroup( f ), [ f.1^f.2, f.1*f.2 ] );
+>              GeneratorsOfGroup( f ), [ f.1^f.2, f.1*f.2 ] );
 [ f1, f2 ] -> [ f2^-1*f1*f2, f1*f2 ]
 gap> ImageElm( iso, aut );
 O^2*U*O*P^-1*U
