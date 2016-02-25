@@ -4,16 +4,16 @@
 ##
 ## The package info file for the FGA package
 ##
-#Y 2003 - 2015
+#Y 2003 - 2016
 ##
 
 SetPackageInfo( rec(
 
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
-Version := "1.3.0",
+Version := "1.3.1",
 #        dd/mm/yyyy
-Date := "25/08/2015",
+Date := "28/02/2016",
 
 Persons := [
   rec( 
@@ -23,17 +23,17 @@ Persons := [
     IsMaintainer  := true,
     Email         := "c.sievers@tu-bs.de",
 #    WWWHome       := "",
-    PostalAddress := Concatenation(
-            [ "Christian Sievers\n", 
-              "Fachbereich Mathematik und Informatik\n",
-              "Institut Computational Mathematics\n",
-              "Technische Universit\"at Braunschweig\n",
-              "Pockelsstr. 14\n",
-              "D-38106 Braunschweig,\n",
-              "Germany" ]),
-    Place         := "Braunschweig",
-    Institution   := "TU Braunschweig"  )
-    ],
+#    PostalAddress := Concatenation(
+#            [ "Christian Sievers\n", 
+#              "Fachbereich Mathematik und Informatik\n",
+#              "Institut Computational Mathematics\n",
+#              "Technische Universit\"at Braunschweig\n",
+#              "Pockelsstr. 14\n",
+#              "D-38106 Braunschweig,\n",
+#              "Germany" ]),
+#    Place         := "Braunschweig",
+#    Institution   := "TU Braunschweig"
+    ) ],
 
 Status := "accepted",
 
