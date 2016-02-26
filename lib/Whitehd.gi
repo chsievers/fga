@@ -55,8 +55,8 @@ InstallGlobalFunction( FGA_WhiteheadAutomorphism,
         Add( imgs, img );
         Add( imgsinv, imginv);
     od;
-    aut    := GroupHomomorphismByImages( G, G, GeneratorsOfGroup(G), imgs );
-    autinv := GroupHomomorphismByImages( G, G, GeneratorsOfGroup(G), imgsinv );
+    aut    := GroupHomomorphismByImagesNC( G, G, GeneratorsOfGroup(G), imgs );
+    autinv := GroupHomomorphismByImagesNC( G, G, GeneratorsOfGroup(G), imgsinv );
     SetInverse( aut, autinv );
     SetInverse( autinv, aut );
     SetFGA_WhiteheadParams( aut , rec( gen := ngen, L := L, R := R,
@@ -168,14 +168,14 @@ InstallGlobalFunction( FGA_ExtSymListRepToPQO,
     rank := Length( target );
     Pperm := (1,2);
     Qperm := PermList(Concatenation([2..rank],[1]));
-    homperm := GroupHomomorphismByImages( f2,
-                                          SymmetricGroup( rank ), 
-                                          GeneratorsOfGroup(f2),
-                                          [ Pperm, Qperm ] );
-    homrep  := GroupHomomorphismByImages( f2,
-                                          Group( p, q ),
-                                          GeneratorsOfGroup( f2 ),
-                                          [ p, q ] );
+    homperm := GroupHomomorphismByImagesNC( f2,
+                                            SymmetricGroup( rank ), 
+                                            GeneratorsOfGroup(f2),
+                                            [ Pperm, Qperm ] );
+    homrep  := GroupHomomorphismByImagesNC( f2,
+                                            Group( p, q ),
+                                            GeneratorsOfGroup( f2 ),
+                                            [ p, q ] );
 
     # first get rid of extendedness, using o and q
     lastshift := 1;
