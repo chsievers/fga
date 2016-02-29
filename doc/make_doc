@@ -28,7 +28,8 @@ tex manual
 pdftex manual; pdftex manual 
 
 # The HTML version of the manual
-mkdir -p ../htm
+rm -r ../htm
+mkdir ../htm
 echo "Creating HTML documentation"
 GAPROOT/etc/convert.pl -t -c -n FGA . ../htm
 
