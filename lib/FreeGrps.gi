@@ -249,6 +249,20 @@ InstallMethod( CyclicallyReducedWord,
     end );
 
 
+
+InstallImmediateMethod( IsAbelian,
+    IsFreeGroup and HasRankOfFreeGroup,
+    0,
+    G -> RankOfFreeGroup(G) < 2
+);
+
+InstallImmediateMethod( IsSolvableGroup,
+    IsFreeGroup and HasRankOfFreeGroup,
+    0,
+    G -> RankOfFreeGroup(G) < 2
+);
+
+
 #############################################################################
 ##
 #E
