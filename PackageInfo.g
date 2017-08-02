@@ -113,7 +113,7 @@ PackageDoc := rec(
 ##  Are there restrictions on the operating system for this package? Or does
 ##  the package need other packages to be available?
 Dependencies := rec(
-  GAP := ">=4.4",
+  GAP := ">=4.8",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [],
   ExternalConditions := []

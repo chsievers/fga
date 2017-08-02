@@ -1,3 +1,3 @@
-LoadPackage( "FGA" );
-dirs := DirectoriesPackageLibrary( "FGA", "tst" );
-ReadTest( Filename( dirs, "FGA.tst" ) );
+LoadPackage("FGA");
+TestDirectory(DirectoriesPackageLibrary("FGA", "tst"), rec(exitGAP := true));
+FORCE_QUIT_GAP(1);
