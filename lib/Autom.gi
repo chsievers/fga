@@ -4,7 +4,7 @@
 ##
 ##  Methods to create and compute with inverse automata
 ##
-#Y  2003 - 2012
+#Y  2003 - 2018
 ##
 
 
@@ -326,7 +326,7 @@ InstallGlobalFunction( FGA_FindGeneratorsAndStates,
         fi;
     od;
     ###
-    SetFGA_States(A, Q);
+    A!.states := Q;
     SetFGA_GeneratorsLetterRep(A, Gens);
     end );
 
@@ -344,12 +344,12 @@ InstallMethod( FGA_GeneratorsLetterRep,
     return FGA_GeneratorsLetterRep(A);
     end );
 
-InstallMethod( FGA_States,
-    "for simple inverse Automata",
-    [ IsSimpleInvAutomatonRep ],
+InstallGlobalFunction( FGA_States,
     function(A)
-    FGA_FindGeneratorsAndStates(A);
-    return FGA_States(A);
+    if not IsBound( A!.states ) then
+        FGA_FindGeneratorsAndStates(A);
+    fi;
+    return A!.states;
     end );
  
 InstallGlobalFunction( FGA_reducedPos,
