@@ -327,7 +327,7 @@ InstallGlobalFunction( FGA_FindGeneratorsAndStates,
     od;
     ###
     A!.states := Q;
-    SetFGA_GeneratorsLetterRep(A, Gens);
+    A!.genslr := Gens;
     end );
 
 InstallGlobalFunction( FGA_initial,
@@ -336,12 +336,12 @@ InstallGlobalFunction( FGA_initial,
 InstallGlobalFunction( FGA_repr,
     state -> state.repr );
 
-InstallMethod( FGA_GeneratorsLetterRep,
-    "for simple inverse Automata",
-    [ IsSimpleInvAutomatonRep ],
+InstallGlobalFunction( FGA_GeneratorsLetterRep,
     function(A)
-    FGA_FindGeneratorsAndStates(A);
-    return FGA_GeneratorsLetterRep(A);
+    if not IsBound( A!.genslr ) then
+        FGA_FindGeneratorsAndStates(A);
+    fi;
+    return A!.genslr;
     end );
 
 InstallGlobalFunction( FGA_States,

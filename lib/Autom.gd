@@ -38,8 +38,7 @@ DeclareGlobalFunction( "FGA_reducedPos" );
 DeclareGlobalFunction( "FGA_Index" );
 DeclareGlobalFunction( "FGA_AsWordLetterRepInFreeGenerators" );
 DeclareGlobalFunction( "FGA_States" );
-
-DeclareAttribute( "FGA_GeneratorsLetterRep", IsInvAutomatonCategory );
+DeclareGlobalFunction( "FGA_GeneratorsLetterRep" );
 
 
 #############################################################################
