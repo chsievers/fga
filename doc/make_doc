@@ -11,6 +11,8 @@
 ##  Example Package documentation.
 ## 
 
+set -e
+
 [ -L GAPROOT ] || { echo GAPROOT link missing; exit 1; }
 
 echo "TeXing documentation"
@@ -28,7 +30,7 @@ tex manual
 pdftex manual; pdftex manual 
 
 # The HTML version of the manual
-rm -r ../htm
+rm -rf ../htm
 mkdir ../htm
 echo "Creating HTML documentation"
 GAPROOT/etc/convert.pl -t -c -n FGA . ../htm
