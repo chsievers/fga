@@ -4,16 +4,16 @@
 ##
 ## The package info file for the FGA package
 ##
-#Y 2003 - 2016
+#Y 2003 - 2018
 ##
 
 SetPackageInfo( rec(
 
 PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
-Version := "1.3.1",
+Version := "1.4.0",
 #        dd/mm/yyyy
-Date := "28/02/2016",
+Date := "23/03/2018",
 
 Persons := [
   rec( 
