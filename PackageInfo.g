@@ -13,7 +13,8 @@ PackageName := "FGA",
 Subtitle := "Free Group Algorithms",
 Version := "1.4.0",
 #        dd/mm/yyyy
-Date := "23/03/2018",
+Date := "23/03/2018", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec( 
@@ -94,8 +95,6 @@ AbstractHTML :=
 PackageDoc := rec(
   # use same as in GAP            
   BookName  := "FGA",
-  # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  # Archive := "",
   ArchiveURLSubset := ["doc", "htm"],
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
