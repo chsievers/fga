@@ -14,6 +14,7 @@ Subtitle := "Free Group Algorithms",
 Version := "1.4.0",
 #        dd/mm/yyyy
 Date := "23/03/2018",
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec( 
