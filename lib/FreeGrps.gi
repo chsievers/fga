@@ -55,7 +55,7 @@ InstallMethod( \in,
 #M  FreeGeneratorsOfGroup( <G> )
 ##
 ##  returns a list of free generators of the group <G>.
-##  This is a minimal generating set, but is also guarantied to
+##  This is a minimal generating set, but is also guaranteed to
 ##  be N-reduced.
 ##
 InstallMethod( FreeGeneratorsOfGroup,
