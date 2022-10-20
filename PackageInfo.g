@@ -94,8 +94,6 @@ AbstractHTML :=
 PackageDoc := rec(
   # use same as in GAP            
   BookName  := "FGA",
-  # format/extension can be one of .zoo, .tar.gz, .tar.bz2, -win.zip
-  # Archive := "",
   ArchiveURLSubset := ["doc", "htm"],
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
@@ -104,9 +102,6 @@ PackageDoc := rec(
   # a longer title of the book, this together with the book name should
   # fit on a single text line (appears with the '?books' command in GAP)
   LongTitle := "Free Group Algorithms",
-  # Should this help book be autoloaded when GAP starts up? This should
-  # usually be 'true', otherwise say 'false'. 
-  Autoload  := true
 ),
 
 
@@ -121,8 +116,6 @@ Dependencies := rec(
 
 AvailabilityTest := ReturnTrue,
 #BannerString := ""
-
-Autoload := true,
 
 ##  *Optional*, but recommended: path relative to package root to a file which 
 ##  contains as many tests of the package functionality as sensible.
