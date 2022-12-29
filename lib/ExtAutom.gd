@@ -8,9 +8,6 @@
 #Y  2003 - 2012
 ##
 
-DeclareGlobalVariable( "FGA_FreeGroupForGenerators" );
-DeclareGlobalVariable( "FGA_One" );
-
 DeclareGlobalFunction( "FGA_newstateX" );
 DeclareGlobalFunction( "FGA_connectposX" );
 DeclareGlobalFunction( "FGA_connectX" );

@@ -8,9 +8,9 @@
 ##
 
 
-InstallValue( FGA_FreeGroupForGenerators, FreeGroup(infinity) );
+BindGlobal( "FGA_FreeGroupForGenerators", FreeGroup(infinity) );
 
-InstallValue( FGA_One, One(FGA_FreeGroupForGenerators) );
+BindGlobal( "FGA_One", One(FGA_FreeGroupForGenerators) );
 
 InstallGlobalFunction( FGA_newstateX,
     function()
